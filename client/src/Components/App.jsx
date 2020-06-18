@@ -5,15 +5,17 @@ function App() {
   const [paymentRate, setPaymentRate] = useState(1);
   const [setDownPaymentTotal] = useState(750);
   const [r, setInterestRate] = useState(0.10);
-  // const [loanType, setLoanRate];
+  const [loanType, setType] = useState('30-year fixed');
 
   const nf = new Intl.NumberFormat();
   const downPaymentTotal = Math.round((homePrice * paymentRate) / 100);
   const homePriceSign = `$${nf.format(homePrice)}`;
-  const downPaymentSign = `$${downPaymentTotal.toLocaleString()}`;
+  const downPaymentSign = `$${nf.format(downPaymentTotal)}`;
   const paymentRateSign = `${paymentRate}%`;
   const rSign = `${r}%`;
 
+  console.log('loan type', loanType);
+  console.log('r', r);
   return (
     <div className="pageLayout">
       <div className="container">
@@ -40,7 +42,7 @@ function App() {
                 <div className="input-container ">
                   <div className="financial-detail ">
                     <div className="text-container">
-                      <label forhtml="homePriceInput">Home Price</label>
+                      Home Price
                     </div>
                     <input id="homePriceInput" className="price-input-container" style={{ width: '112px' }} type="text" onChange={(e) => setHomePrice(e.target.value)} value={homePriceSign} />
                   </div>
@@ -56,7 +58,8 @@ function App() {
                 <div className="input-container ">
                   <div className="financial-detail ">
                     <div className="text-container">
-                      <label forhtml="DownPaymentInput">Down Payment</label>
+                      {/* <label forhtml="DownPaymentInput">Down Payment</label> */}
+                      Down Payment
                     </div>
                     <div className="down-payment-wrapper">
                       {/* left payment */}
@@ -77,7 +80,8 @@ function App() {
                 <div className="input-container ">
                   <div className="financial-detail ">
                     <div className="text-container">
-                      <label forhtml="InterestRateInput">Interest Rate</label>
+                      {/* <label forhtml="InterestRateInput">Interest Rate</label> */}
+                      Interest Rate
                     </div>
                     <input id="InterestRateInput" className="price-input-container" style={{ width: '75px' }} type="text" onChange={(e) => setInterestRate(e.target.value)} value={rSign} />
                   </div>
@@ -92,13 +96,14 @@ function App() {
                 <div className="input-container ">
                   <div className="financial-detail ">
                     <div className="text-container">
-                      <label forhtml="LoanTypeInput">Loan Type</label>
+                      {/* <label forhtml="LoanTypeInput">Loan Type</label> */}
+                      Loan Type
                     </div>
                   </div>
                   <div className="select-container">
                     <div className="media-container">
                       <div className="media-content">
-                        30-year fixed
+                        {loanType}
                       </div>
                       <div className="svg-container">
                         <svg className="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -106,15 +111,15 @@ function App() {
                         </svg>
                       </div>
                     </div>
-                    <select id="LoanTypeInput" className="select-input">
-                      <option data-idx="0" value="30-year fixed">30-year fixed</option>
-                      <option data-idx="1" value="20-year fixed">20-year fixed</option>
-                      <option data-idx="2" value="15-year fixed">15-year fixed</option>
-                      <option data-idx="3" value="10-year fixed">10-year fixed</option>
-                      <option data-idx="4" value="FHA 30-year fixed">FHA 30-year fixed</option>
-                      <option data-idx="5" value="FHA 15-year fixed">FHA 15-year fixed</option>
-                      <option data-idx="6" value="VA 30-year fixed">VA 30-year fixed</option>
-                      <option data-idx="7" value="VA 15-year fixed">VA 15-year fixed</option>
+                    <select id="LoanTypeInput" value={loanType} className="select-input" onChange={(e) => setType(e.target.value)}>
+                      <option onChange={() => setInterestRate(0.0351)} value="30-year fixed">30-year fixed</option>
+                      <option onChange={(e) => setInterestRate(e.target.value)} value="20-year fixed">20-year fixed</option>
+                      <option onChange={() => setInterestRate(0.0286)} value="15-year fixed">15-year fixed</option>
+                      <option onChange={() => setInterestRate(0.0297)} value="10-year fixed">10-year fixed</option>
+                      <option onChange={() => setInterestRate(0.0306)} value="FHA 30-year fixed">FHA 30-year fixed</option>
+                      <option onChange={() => setInterestRate(0.0289)} value="FHA 15-year fixed">FHA 15-year fixed</option>
+                      <option onChange={() => setInterestRate(0.0284)} value="VA 30-year fixed">VA 30-year fixed</option>
+                      <option onChange={() => setInterestRate(0.0269)} value="VA 30-year fixed">VA 15-year fixed</option>
                     </select>
                   </div>
                 </div>
@@ -122,12 +127,103 @@ function App() {
             </div>
           </div>
         </div>
+        {/* ************** GRAPH CONTAINER  ****************** */}
         <div className="Affordability__GraphTableContainer-sc-1waefr9-0 hIMqqi">
+          {/* ************** VISUAL GRAPH  ****************** */}
           <div className="Affordability__DonutChartContainer-sc-1waefr9-1 BmTlN">
-
+            {/* to do */}
           </div>
+          {/* ************** GRAPH INFO ****************** */}
           <div className="AffordabilityTable__Container-dnla82-0 eyGlrx">
-
+            {/* here */}
+            <div spacing="tighter" className="Grid__GridContainer-sc-5ig2n4-1 iZUMyA" style={{ width: '100%' }}>
+              {/* **************** PRINCIPLE AND INTEREST **************** */}
+              <div className="Grid__CellBox-sc-5ig2n4-0 jFrPhZ">
+                <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN">
+                  <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                    <div className="AffordabilityTable__TableTitle-dnla82-2 iffZbC">
+                      <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN" style={{ width: '100%' }}>
+                        <div style={{ color: 'rgb(5, 34, 134)' }} className="AffordabilityTable__TableTitleDot-dnla82-3 bucEcv">{/**/}</div>
+                        <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                          <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 cERLyX">
+                            Principal & Interest
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 epkfvN">
+                    $17,258
+                    {/* principal and interst */}
+                  </div>
+                </div>
+              </div>
+              {/* **************** PROPERTY TAX **************** */}
+              <div className="Grid__CellBox-sc-5ig2n4-0 jFrPhZ">
+                <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN">
+                  <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                    <div className="AffordabilityTable__TableTitle-dnla82-2 iffZbC">
+                      <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN" style={{ width: '100%' }}>
+                        <div color="rgb(0, 173, 187)" className="AffordabilityTable__TableTitleDot-dnla82-3 bucEcv">{/* to get rid of syntax error */}</div>
+                        <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                          <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 cERLyX">
+                            Property Taxes
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 epkfvN">
+                    $17,258
+                    {/* change this to a formula */}
+                  </div>
+                </div>
+              </div>
+              {/* **************** HOME INSURANCE **************** */}
+              <div className="Grid__CellBox-sc-5ig2n4-0 jFrPhZ">
+                <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN">
+                  <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                    <div className="AffordabilityTable__TableTitle-dnla82-2 iffZbC">
+                      <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN" style={{ width: '100%' }}>
+                        <div color="rgb(0, 173, 187)" className="AffordabilityTable__TableTitleDot-dnla82-3 bucEcv">{/* to get rid of syntax error */}</div>
+                        <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                          <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 cERLyX">
+                            Home Insurance
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 epkfvN">
+                    $17,258
+                    {/* change this to a formula */}
+                  </div>
+                </div>
+              </div>
+              {/* **************** MORTGAGE INS. & OTHER **************** */}
+              <div className="Grid__CellBox-sc-5ig2n4-0 jFrPhZ">
+                <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN">
+                  <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                    <div className="AffordabilityTable__TableTitle-dnla82-2 iffZbC">
+                      <div className="MediaBlock__MediaContainer-ldzu2c-0 ilIDoN" style={{ width: '100%' }}>
+                        <div className="AffordabilityTable__TableTitleDot-dnla82-3 test bucEcv" style={{ color: 'rgb(194, 213, 0)' }}>{/* to get rid of syntax error */}</div>
+                        <div className="MediaBlock__MediaContent-ldzu2c-1 cbztua">
+                          <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 cERLyX">
+                            Mortgage ins. & other
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 epkfvN">
+                    $17,258
+                    {/* change this to a formula */}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="Padding-sc-1d43y5s-0 knveJa">{/**/}</div>
+            <div className="AffordabilityTable__CtaButtonContainer-dnla82-1 hJcSpo">{/* to do: the get pre-qualified button */}</div>
           </div>
         </div>
       </div>
