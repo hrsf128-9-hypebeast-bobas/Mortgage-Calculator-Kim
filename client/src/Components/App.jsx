@@ -5,13 +5,15 @@ function App() {
   const [paymentRate, setPaymentRate] = useState(1);
   const [setDownPaymentTotal] = useState(750);
   const [r, setInterestRate] = useState(0.10);
+  // const [loanType, setLoanRate];
 
+  const nf = new Intl.NumberFormat();
   const downPaymentTotal = Math.round((homePrice * paymentRate) / 100);
-
-  const homePriceSign = `$${homePrice}`;
-  const downPaymentSign = `$${downPaymentTotal}`;
+  const homePriceSign = `$${nf.format(homePrice)}`;
+  const downPaymentSign = `$${downPaymentTotal.toLocaleString()}`;
   const paymentRateSign = `${paymentRate}%`;
   const rSign = `${r}%`;
+
   return (
     <div className="pageLayout">
       <div className="container">
@@ -118,6 +120,14 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="Affordability__GraphTableContainer-sc-1waefr9-0 hIMqqi">
+          <div className="Affordability__DonutChartContainer-sc-1waefr9-1 BmTlN">
+
+          </div>
+          <div className="AffordabilityTable__Container-dnla82-0 eyGlrx">
+
           </div>
         </div>
       </div>
