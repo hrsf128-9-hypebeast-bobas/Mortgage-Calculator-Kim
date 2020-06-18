@@ -8,6 +8,10 @@ function App() {
 
   const downPaymentTotal = Math.round((homePrice * paymentRate) / 100);
 
+  const homePriceSign = `$${homePrice}`;
+  const downPaymentSign = `$${downPaymentTotal}`;
+  const paymentRateSign = `${paymentRate}%`;
+  const rSign = `${r}%`;
   return (
     <div className="BasicPageLayout__BasicPageContent-sc-7vcr4x-1 eGqAVA">
       <div data-testid="affordability-container" className="StyledSectionContainer__Container-qnx9kh-0 jUHBEY">
@@ -36,7 +40,7 @@ function App() {
                     <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 epkfvN">
                       <label forhtml="homePriceInput">Home Price</label>
                     </div>
-                    <input id="homePriceInput" className="dzqnKK" style={{ width: '112px' }} type="text" onChange={(e) => setHomePrice(e.target.value)} value={homePrice} />
+                    <input id="homePriceInput" className="dzqnKK" style={{ width: '112px' }} type="text" onChange={(e) => setHomePrice(e.target.value)} value={homePriceSign} />
                   </div>
                   <div className="InputSlider__InputSliderContainer-sc-1f3z7mk-0 bgApu">
                     {/* Home Price Slider */}
@@ -54,9 +58,9 @@ function App() {
                     </div>
                     <div className="AffordabilityInputControls__DownPaymentInputsWrapper-owr020-4 hRXWuF">
                       {/* left payment */}
-                      <input className="Input-sc-13tdpp0-0 AffordabilityInputControls__LeftSplitFinancialInput-owr020-2 gXVAeP" id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={(e) => setDownPaymentTotal(e.target.value)} value={downPaymentTotal} />
+                      <input className="Input-sc-13tdpp0-0 AffordabilityInputControls__LeftSplitFinancialInput-owr020-2 gXVAeP" id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={(e) => setDownPaymentTotal(e.target.value)} value={downPaymentSign} />
                       {/* Down Payment right Textarea */}
-                      <input className="Input-sc-13tdpp0-0 AffordabilityInputControls__RightSplitFinancialInput-owr020-3 hCagOJ" style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(paymentRate)} />
+                      <input className="Input-sc-13tdpp0-0 AffordabilityInputControls__RightSplitFinancialInput-owr020-3 hCagOJ" style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(paymentRateSign)} />
                     </div>
                   </div>
                   <div className="InputSlider__InputSliderContainer-sc-1f3z7mk-0 bgApu">
@@ -73,10 +77,10 @@ function App() {
                     <div className="Text__TextBase-sc-1i9uasc-0-div Text__TextContainerBase-sc-1i9uasc-1 epkfvN">
                       <label forhtml="InterestRateInput">Interest Rate</label>
                     </div>
-                    <input id="InterestRateInput" className="Input-sc-13tdpp0-0 dzqnKK" style={{ width: '75px' }} type="text" onChange={(e) => setInterestRate(e.target.value)} value={r} />
+                    <input id="InterestRateInput" className="Input-sc-13tdpp0-0 dzqnKK" style={{ width: '75px' }} type="text" onChange={(e) => setInterestRate(e.target.value)} value={rSign} />
                   </div>
                   <div className="InputSlider__InputSliderContainer-sc-1f3z7mk-0 bgApu">
-                    <input className="InputSlider__RangeInput-sc-1f3z7mk-1 KJNLB" type="range" min="0.0" max="6.50" step="0.10" onChange={(e) => setInterestRate(e.target.value)} value={r} />
+                    <input className="InputSlider__RangeInput-sc-1f3z7mk-1 jUUqqp" type="range" min="0.0" max="6.50" step="0.10" onChange={(e) => setInterestRate(e.target.value)} value={r} />
                   </div>
                 </div>
               </div>
