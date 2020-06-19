@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import $ from 'jquery';
 
 function App() {
-  $.get('/mortgage')
-    .done((results) => {
-      console.log('results',results);
-    });
-
   const [homePriceVal, sethomePriceVal] = useState(4798000);
   const [downPaymentRate, setPaymentRate] = useState(20);
   const [setDownPaymentTotal] = useState(750);
@@ -245,35 +239,27 @@ function App() {
             {/* **************** PRE-QUALIFIED BUTTON **************** */}
             <div className="payment-container seperate-cols">
               <div className="payment-cell center-cell">
-                <div className="payment-content">
-                  <div style={{ width: '50%' }}>
-                    <div className="btn">
-                      <button type="button">Get Pre-Qualified</button>
-                    </div>
-                  </div>
+                <div className="qualified-center">
+                  <button type="button" className="pre-qualified-btn " style={{ width: '100%' }}>Get Pre-Qualified</button>
                 </div>
               </div>
             </div>
             {/* **************** OR **************** */}
             <div className="payment-container seperate-cols">
               <div className="payment-cell center-cell">
-                <div className="payment-content">
-                  <div style={{ width: '50%' }}>
-                    <div className="other-text">
-                      or
-                    </div>
+                <div className="qualified-center">
+                  <div className="other-text" style={{ width: '100%' }}>
+                    or
                   </div>
                 </div>
               </div>
             </div>
             {/* **************** SEE TODAY'S MORTGAGE RATES **************** */}
             <div className="payment-container seperate-cols">
-              <div className="payment-cell center-cell">
-                <div className="payment-content">
-                  <div style={{ width: '50%' }}>
-                    <div className="other-text" style={{ color: 'teal' }}>
-                      See today's mortgage rates
-                    </div>
+              <div className="payment-cell center-cell btn-cell">
+                <div className="qualified-center">
+                  <div className="other-text" style={{ width: '100%', color: 'teal' }}>
+                    See today's mortgage rates
                   </div>
                 </div>
               </div>

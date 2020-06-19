@@ -1,5 +1,4 @@
 const faker = require('faker');
-const db = require('./index.js');
 const Mortgage = require('./Mortgage.js');
 // const fakePrice = faker.commerce.price(3000000, 4000000);
 const sampleData = [];
@@ -17,8 +16,7 @@ generateMortgage(1);
 // console.log(sampleData);
 
 const insertSampleData = () => {
-  Mortgage.create(sampleData)
-    .then(() => db.disconnect());
+  Mortgage.create(sampleData);
 };
 
 insertSampleData();
