@@ -7,7 +7,7 @@ const sampleData = [];
 const generateMortgage = (n) => {
   for (let i = 0; i < n; i += 1) {
     const mortgageObj = {
-      mortagePrice: faker.commerce.price(3000000, 4000000).slice(0, -3),
+      mortgagePrice: faker.commerce.price(3000000, 4000000).slice(0, -3),
     };
     sampleData.push(mortgageObj);
   }
@@ -22,3 +22,5 @@ const insertSampleData = () => {
 };
 
 insertSampleData();
+
+// run seeding - npm run db:setup

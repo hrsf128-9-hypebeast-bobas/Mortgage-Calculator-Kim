@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/hrsf128-9-hypebeast-bobas/Mortage-Calculator-Kim#readme",
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "mongoose": "^5.9.19",
