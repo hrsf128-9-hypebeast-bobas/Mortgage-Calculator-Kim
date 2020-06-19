@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PreQualified from './PreQualified.jsx';
 
 function App() {
   const [homePriceVal, sethomePriceVal] = useState(4798000);
@@ -235,6 +236,7 @@ function App() {
           </div>
           {/* TO DO: increase padding between cells later */}
           <div className="extra-padding"> </div>
+<<<<<<< HEAD
           <div className="pre-qualified-container">
             {/* **************** PRE-QUALIFIED BUTTON **************** */}
             <div className="payment-container seperate-cols">
@@ -264,6 +266,10 @@ function App() {
                 </div>
               </div>
             </div>
+=======
+          <div>
+            <PreQualified />
+>>>>>>> prequalified-container
           </div>
         </div>
       </div>
