@@ -4,8 +4,9 @@ function App() {
   const [homePriceVal, sethomePriceVal] = useState(4798000);
   const [downPaymentRate, setPaymentRate] = useState(20);
   const [setDownPaymentTotal] = useState(750);
-  const [interestRate, setInterestRate] = useState(3.51);
+  const [interestRate, setInterestRate] = useState(3.49);
   const [loanType, setLoanType] = useState('30-year fixed');
+
   let mortgageIns = 0;
 
   const nf = new Intl.NumberFormat(); // adds commas
@@ -33,7 +34,7 @@ function App() {
   if ((downPaymentTotal) === 0) {
     mortgageIns = 0;
   } else if ((downPaymentRate / 100) < 0.20) {
-    mortgageIns = Math.ceil(insurance / (downPaymentRate / 100));
+    mortgageIns = Math.ceil(100 / (downPaymentRate / 100));
   } else {
     mortgageIns = 0;
   }
@@ -135,7 +136,7 @@ function App() {
                       </div>
                     </div>
                     <select id="LoanTypeInput" value={loanType} className="select-input" onChange={(e) => { setInterestRate(Number((e.target.value).slice(0, 4))); setLoanType((e.target.value).slice(5)); }}>
-                      <option value="3.51 30-year fixed">30-year fixed</option>
+                      <option value="3.49 30-year fixed">30-year fixed</option>
                       <option value="3.27 20-year fixed">20-year fixed</option>
                       <option value="2.86 15-year fixed">15-year fixed</option>
                       <option value="2.97 10-year fixed">10-year fixed</option>
