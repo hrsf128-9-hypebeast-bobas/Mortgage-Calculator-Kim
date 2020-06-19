@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "db:setup": "node database/seed.js"
+    "connection-hehe": "node database/seed.js"
   },
   "repository": {
     "type": "git",

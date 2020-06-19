@@ -156,7 +156,12 @@ function App() {
       <div className="graph-container">
         {/* ************** VISUAL GRAPH  ****************** */}
         <div className="affordability-donut-graph">
-          {/* to do */}
+          { /* https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72 */}
+          <svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
+            <circle className="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+            <circle className="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" strokeWidth="3"></circle>
+            <circle className="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" strokeWidth="3"></circle>
+          </svg>
         </div>
         {/* ************** GRAPH INFO ****************** */}
         <div className="affordability-table">
@@ -182,7 +187,7 @@ function App() {
             <div className="payment-cell">
               <div className="payment-content">
                 <div className="payment-cell" style={{ width: '100%' }}>
-                  <div color="rgb(0, 173, 187)" className="payment-title-dot property-tax-dot">{/* to get rid of syntax error */}</div>
+                  <div className="payment-title-dot property-tax-dot">{/* to get rid of syntax error */}</div>
                   <div className="payment-content">
                     Property Taxes
                   </div>
@@ -199,7 +204,7 @@ function App() {
             <div className="payment-cell">
               <div className="payment-content">
                 <div className="payment-cell" style={{ width: '100%' }}>
-                  <div className="payment-title-dot home-insurance-dot">{/* to get rid of syntax error */}</div>
+                  <div className="payment-title-dot home-insurance-dot"> </div>
                   <div className="payment-content">
                     Home Insurance
                   </div>
@@ -216,7 +221,7 @@ function App() {
             <div className="payment-cell">
               <div className="payment-content">
                 <div className="payment-cell" style={{ width: '100%' }}>
-                  <div className="payment-title-dot mortgage-ins-dot">{/* to get rid of syntax error */}</div>
+                  <div className="payment-title-dot mortgage-ins-dot"> </div>
                   <div className="payment-content">
                     Mortgage ins. & other
                   </div>
@@ -228,8 +233,8 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="padding-btw-container">{/**/}</div>
-          <div className="pre-qualified-btn hJcSpo">{/* to do: the get pre-qualified button */}</div>
+          {/* TO DO: increase padding between cells later */}
+          <div className="extra-padding"> </div>
         </div>
       </div>
     </div>
