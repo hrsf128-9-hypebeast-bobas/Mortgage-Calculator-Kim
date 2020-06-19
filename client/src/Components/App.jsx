@@ -6,6 +6,7 @@ function App() {
   const [setDownPaymentTotal] = useState(750);
   const [interestRate, setInterestRate] = useState(3.51);
   const [loanType, setLoanType] = useState('30-year fixed');
+  let mortgageIns = 0;
 
   const nf = new Intl.NumberFormat(); // adds commas
   const downPaymentTotal = Math.round((homePriceVal * downPaymentRate) / 100);
@@ -25,11 +26,19 @@ function App() {
   /* *** PROPERTY TAX FORMULA *** */
   const propertyTaxes = Math.ceil((homePriceVal * 0.01) / 12);
 
-  /* *** MORTAGE INS. FORMULA ***  (Defends on FHA) */
-  const mortgageIns = 0;
+  /* *** HOME INSURANCE *** */
+  const insurance = 75;
+
+  /* *** MORTAGE INS. FORMULA *** */
+  if ((downPaymentTotal) === 0) {
+    mortgageIns = 0;
+  } else if ((downPaymentRate / 100) < 0.20) {
+    mortgageIns = Math.ceil(insurance / (downPaymentRate / 100));
+  } else {
+    mortgageIns = 0;
+  }
 
   /* *** MONTHLY MORTGAGE PAYMENTS *** */
-  const insurance = 75;
   const monthlyMortgage = nf.format(principalInterestVal + propertyTaxes + insurance + mortgageIns);
 
   return (
@@ -196,7 +205,8 @@ function App() {
                 </div>
               </div>
               <div className="price-text">
-                $75
+                $
+                {insurance}
               </div>
             </div>
           </div>
@@ -212,8 +222,8 @@ function App() {
                 </div>
               </div>
               <div className="price-text">
-                Change
-                {/* change this to a formula */}
+                $
+                {nf.format(mortgageIns)}
               </div>
             </div>
           </div>
