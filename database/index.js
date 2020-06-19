@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // entry point of mongo in the database
-const mongoUri = 'mongodb://localhost/blogmodo';
+const mongoUri = 'mongodb://localhost/trulia';
 
 const db = mongoose.connect(mongoUri);
 

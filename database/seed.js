@@ -1,16 +1,24 @@
-// the fake data
+const faker = require('faker');
 const db = require('./index.js');
 const Mortgage = require('./Mortgage.js');
+// const fakePrice = faker.commerce.price(3000000, 4000000);
+const sampleData = [];
 
-const data = [
-  {
-    mortgagePrice: 4798000,
-  },
-];
+const generateMortgage = (n) => {
+  for (let i = 0; i < n; i += 1) {
+    const mortgageObj = {
+      mortagePrice: faker.commerce.price(3000000, 4000000).slice(0, -3),
+    };
+    sampleData.push(mortgageObj);
+  }
+};
 
-const insertSampleBlogs = () => {
-  Mortgage.create(data)
+generateMortgage(1);
+// console.log(sampleData);
+
+const insertSampleData = () => {
+  Mortgage.create(sampleData)
     .then(() => db.disconnect());
 };
 
-insertSampleBlogs();
+insertSampleData();
