@@ -158,9 +158,9 @@ function App() {
         <div className="affordability-donut-graph">
           { /* https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72 */}
           <svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
-            <circle className="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-            <circle className="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" strokeWidth="3"></circle>
-            <circle className="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" strokeWidth="3"></circle>
+            <circle className="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"> </circle>
+            <circle className="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" strokeWidth="3"> </circle>
+            <circle className="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" strokeWidth="3"> </circle>
           </svg>
         </div>
         {/* ************** GRAPH INFO ****************** */}
@@ -235,6 +235,44 @@ function App() {
           </div>
           {/* TO DO: increase padding between cells later */}
           <div className="extra-padding"> </div>
+          <div className="pre-qualified-container">
+            {/* **************** PRE-QUALIFIED BUTTON **************** */}
+            <div className="payment-container seperate-cols">
+              <div className="payment-cell center-cell">
+                <div className="payment-content">
+                  <div style={{ width: '50%' }}>
+                    <div className="btn">
+                      <button type="button">Get Pre-Qualified</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* **************** OR **************** */}
+            <div className="payment-container seperate-cols">
+              <div className="payment-cell center-cell">
+                <div className="payment-content">
+                  <div style={{ width: '50%' }}>
+                    <div className="other-text">
+                      or
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* **************** SEE TODAY'S MORTGAGE RATES **************** */}
+            <div className="payment-container seperate-cols">
+              <div className="payment-cell center-cell">
+                <div className="payment-content">
+                  <div style={{ width: '50%' }}>
+                    <div className="other-text" style={{ color: 'teal' }}>
+                      See today's mortgage rates
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
