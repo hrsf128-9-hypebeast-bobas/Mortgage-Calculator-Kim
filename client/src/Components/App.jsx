@@ -236,40 +236,8 @@ function App() {
           </div>
           {/* TO DO: increase padding between cells later */}
           <div className="extra-padding"> </div>
-<<<<<<< HEAD
-          <div className="pre-qualified-container">
-            {/* **************** PRE-QUALIFIED BUTTON **************** */}
-            <div className="payment-container seperate-cols">
-              <div className="payment-cell center-cell">
-                <div className="qualified-center">
-                  <button type="button" className="pre-qualified-btn " style={{ width: '100%' }}>Get Pre-Qualified</button>
-                </div>
-              </div>
-            </div>
-            {/* **************** OR **************** */}
-            <div className="payment-container seperate-cols">
-              <div className="payment-cell center-cell">
-                <div className="qualified-center">
-                  <div className="other-text" style={{ width: '100%' }}>
-                    or
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* **************** SEE TODAY'S MORTGAGE RATES **************** */}
-            <div className="payment-container seperate-cols">
-              <div className="payment-cell center-cell btn-cell">
-                <div className="qualified-center">
-                  <div className="other-text" style={{ width: '100%', color: 'teal' }}>
-                    See today's mortgage rates
-                  </div>
-                </div>
-              </div>
-            </div>
-=======
           <div>
             <PreQualified />
->>>>>>> prequalified-container
           </div>
         </div>
       </div>
