@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [homePriceVal, sethomePriceVal] = useState(5000);
-  const [downPaymentRate, setPaymentRate] = useState(15);
+  const [homePriceVal, sethomePriceVal] = useState(4798000);
+  const [downPaymentRate, setPaymentRate] = useState(20);
   const [setDownPaymentTotal] = useState(750);
-  const [interestRate, setInterestRate] = useState(2.95);
-  const [loanType, setType] = useState('30-year fixed');
+  const [interestRate, setInterestRate] = useState(3.51);
+  const [loanType, setLoanType] = useState('30-year fixed');
 
   const nf = new Intl.NumberFormat(); // adds commas
   const downPaymentTotal = Math.round((homePriceVal * downPaymentRate) / 100);
@@ -14,15 +14,23 @@ function App() {
   const downPaymentRateFormat = `${downPaymentRate}%`;
   const interestRateFormat = `${interestRate}%`;
 
-  // Compound Interest Formula
+  /* *** COMPOUND INTEREST FORMULA *** */
   const months = 15;
   const N = months * 12;
   const P = homePriceVal - downPaymentTotal;
   const r = Number(((interestRate / 100).toFixed(5) / 12).toFixed(5));
   const top = ((1 + r) ** N).toFixed(3);
-
   const principalInterestVal = Math.ceil(P * ((r * top) / ((top) - 1)));
-  console.log('principal', principalInterestVal);
+
+  /* *** PROPERTY TAX FORMULA *** */
+  const propertyTaxes = Math.ceil((homePriceVal * 0.01) / 12);
+
+  /* *** MORTAGE INS. FORMULA ***  (Defends on FHA) */
+  const mortgageIns = 0;
+
+  /* *** MONTHLY MORTGAGE PAYMENTS *** */
+  const insurance = 75;
+  const monthlyMortgage = nf.format(principalInterestVal + propertyTaxes + insurance + mortgageIns);
 
   return (
     <div className="pageLayout">
@@ -35,7 +43,9 @@ function App() {
             Calculate your monthly mortgage payments
           </div>
           <div className="est-payment">
-            Your est. payment: $[**enter value here**]/month
+            Your est. payment: $
+            {monthlyMortgage}
+            /month
           </div>
         </div>
         <div className="input-container">
@@ -115,15 +125,15 @@ function App() {
                         </svg>
                       </div>
                     </div>
-                    <select id="LoanTypeInput" value={loanType} className="select-input" onChange={(e) => setType(e.target.value)}>
-                      <option value="30-year fixed">30-year fixed</option>
-                      <option value="20-year fixed">20-year fixed</option>
-                      <option value="15-year fixed">15-year fixed</option>
-                      <option value="10-year fixed">10-year fixed</option>
-                      <option value="FHA 30-year fixed">FHA 30-year fixed</option>
-                      <option value="FHA 15-year fixed">FHA 15-year fixed</option>
-                      <option value="VA 30-year fixed">VA 30-year fixed</option>
-                      <option value="VA 30-year fixed">VA 15-year fixed</option>
+                    <select id="LoanTypeInput" value={loanType} className="select-input" onChange={(e) => { setInterestRate(Number((e.target.value).slice(0, 4))); setLoanType((e.target.value).slice(5)); }}>
+                      <option value="3.51 30-year fixed">30-year fixed</option>
+                      <option value="3.27 20-year fixed">20-year fixed</option>
+                      <option value="2.86 15-year fixed">15-year fixed</option>
+                      <option value="2.97 10-year fixed">10-year fixed</option>
+                      <option value="3.06 FHA 30-year fixed">FHA 30-year fixed</option>
+                      <option value="2.89 FHA 15-year fixed">FHA 15-year fixed</option>
+                      <option value="2.84 VA 30-year fixed">VA 30-year fixed</option>
+                      <option value="2.69 VA 15-year fixed">VA 15-year fixed</option>
                     </select>
                   </div>
                 </div>
@@ -153,7 +163,7 @@ function App() {
               </div>
               <div className="price-text">
                 $
-                {principalInterestVal}
+                {nf.format(principalInterestVal)}
               </div>
             </div>
           </div>
@@ -169,8 +179,8 @@ function App() {
                 </div>
               </div>
               <div className="price-text">
-                Change
-                {/* change this to a formula */}
+                $
+                {nf.format(propertyTaxes)}
               </div>
             </div>
           </div>
@@ -186,8 +196,7 @@ function App() {
                 </div>
               </div>
               <div className="price-text">
-                Change
-                {/* change this to a formula */}
+                $75
               </div>
             </div>
           </div>
