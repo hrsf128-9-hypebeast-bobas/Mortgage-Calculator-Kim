@@ -1,14 +1,20 @@
 const mongoose = require('mongoose');
 
+// Controller
+// fixes connection and now i can querying stuff
+mongoose.connect('mongodb://localhost/trulia', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
+const db = mongoose.connection; // the connection
 
-// schema
+db.once('open', () => {
+  console.log(`Connected to MongoDB on ${db.host}:${db.port}`);
+});
+
+// Schema
 const mortgageSchema = new mongoose.Schema({
   mortgagePrice: Number,
 });
 
-// mongoose automatically lower cases & adds an 's' to the end of the collection name
+// Model
 const Mortgage = mongoose.model('Mortgage', mortgageSchema);
-
-// export model to be used
 module.exports = Mortgage;
