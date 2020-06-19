@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [homePriceVal, sethomePriceVal] = useState(4798000);
-  const [downPaymentRate, setPaymentRate] = useState(1);
+  const [homePriceVal, sethomePriceVal] = useState(5000);
+  const [downPaymentRate, setPaymentRate] = useState(15);
   const [setDownPaymentTotal] = useState(750);
-  const [r, setInterestRate] = useState(0.10);
+  const [interestRate, setInterestRate] = useState(2.95);
   const [loanType, setType] = useState('30-year fixed');
 
   const nf = new Intl.NumberFormat(); // adds commas
@@ -12,111 +12,120 @@ function App() {
   const homePriceFormat = `$${nf.format(homePriceVal)}`;
   const downPaymentFormat = `$${nf.format(downPaymentTotal)}`;
   const downPaymentRateFormat = `${downPaymentRate}%`;
-  const interestRateFormat = `${r}%`;
+  const interestRateFormat = `${interestRate}%`;
+
+  // Compound Interest Formula
+  const months = 15;
+  const N = months * 12;
+  const P = homePriceVal - downPaymentTotal;
+  const r = Number(((interestRate / 100).toFixed(5) / 12).toFixed(5));
+  const top = ((1 + r) ** N).toFixed(3);
+
+  const principalInterestVal = Math.ceil(P * ((r * top) / ((top) - 1)));
+  console.log('principal', principalInterestVal);
 
   return (
     <div className="pageLayout">
-      <div className="affordability-text">
-        Affordability
-      </div>
-      <div className="calculation-container">
-        <div className="calculation-text">
-          Calculate your monthly mortgage payments
+      <div className="affordability-container">
+        <div className="affordability-text">
+          Affordability
         </div>
-        <div className="est-payment">
-          Your est. payment: $[**enter value here**]/month
+        <div className="calculation-container">
+          <div className="calculation-text">
+            Calculate your monthly mortgage payments
+          </div>
+          <div className="est-payment">
+            Your est. payment: $[**enter value here**]/month
+          </div>
         </div>
-      </div>
-      <div className="input-container">
-        <div className="flex-container-padding">
-          <div className="grid-container-padding">
-            {/* **************** HOME PRICE **************** */}
-            <div className="grid-cell-box grid-flex">
-              <div className="input-container ">
-                <div className="financial-detail ">
-                  <div className="text-container">
-                    Home Price
-                  </div>
-                  {/* <span>
-                    $ */}
-                  <input id="homePriceInput" className="price-input-container" style={{ width: '112px' }} type="text" onChange={(e) => sethomePriceVal(e.target.value)} value={homePriceFormat} />
-                  {/* </span> */}
-                </div>
-                <div className="slider-container">
-                  {/* Home Price Slider */}
-                  <input className="range" type="range" min="0" max="8000000" step="10" name="homePriceVal" onChange={(e) => sethomePriceVal(e.target.value)} value={homePriceVal} />
-                </div>
-              </div>
-            </div>
-
-            {/* ************** DOWN PAYMENT ****************** */}
-            <div className="grid-cell-box grid-flex">
-              <div className="input-container ">
-                <div className="financial-detail ">
-                  <div className="text-container">
-                    {/* <label forhtml="DownPaymentInput">Down Payment</label> */}
-                    Down Payment
-                  </div>
-                  <div className="down-payment-wrapper">
-                    {/* left payment */}
-                    <input className="left-split-financial-input" id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={(e) => setDownPaymentTotal(e.target.value)} value={downPaymentFormat} />
-                    {/* Down Payment right Textarea */}
-                    <input className="right-split-financial-input" style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(downPaymentRateFormat)} />
-                  </div>
-                </div>
-                <div className="slider-container">
-                  {/* Down Paypment Slider */}
-                  <input className="range" type="range" min="0" max="30" onChange={(e) => setPaymentRate(e.target.value)} value={downPaymentRate} />
-                </div>
-              </div>
-            </div>
-
-            {/* ************** INTEREST RATE ****************** */}
-            <div className="grid-cell-box grid-flex">
-              <div className="input-container ">
-                <div className="financial-detail ">
-                  <div className="text-container">
-                    {/* <label forhtml="InterestRateInput">Interest Rate</label> */}
-                    Interest Rate
-                  </div>
-                  <input id="InterestRateInput" className="price-input-container" style={{ width: '75px' }} type="text" onChange={(e) => setInterestRate(e.target.value)} value={interestRateFormat} />
-                </div>
-                <div className="slider-container">
-                  <input className="range" type="range" min="0.0" max="6.50" step="0.10" onChange={(e) => setInterestRate(e.target.value)} value={r} />
-                </div>
-              </div>
-            </div>
-
-            {/* ************** LOAN TYPE****************** */}
-            <div className="grid-cell-box grid-flex">
-              <div className="input-container ">
-                <div className="financial-detail ">
-                  <div className="text-container">
-                    {/* <label forhtml="LoanTypeInput">Loan Type</label> */}
-                    Loan Type
-                  </div>
-                </div>
-                <div className="select-container">
-                  <div className="drop-down-container">
-                    <div className="drop-down-arrow ">
-                      {loanType}
+        <div className="input-container">
+          <div className="flex-container-padding">
+            <div className="grid-container-padding">
+              {/* **************** HOME PRICE **************** */}
+              <div className="grid-cell-box grid-flex">
+                <div className="input-container ">
+                  <div className="financial-detail ">
+                    <div className="text-container">
+                      Home Price
                     </div>
-                    <div className="svg-container">
-                      <svg className="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.961 18.183l7.056-7.147 1.893 1.868-8.951 9.068-8.927-9.069 1.896-1.866z" fill="#869099"> </path>
-                      </svg>
+                    <input id="homePriceInput" className="home-price-input" style={{ width: '112px' }} type="text" onChange={(e) => sethomePriceVal(e.target.value)} value={homePriceFormat} />
+                  </div>
+                  <div className="slider-container">
+                    {/* Home Price Slider */}
+                    <input className="range" type="range" min="0" max="8000000" step="10" name="homePriceVal" onChange={(e) => sethomePriceVal(e.target.value)} value={homePriceVal} />
+                  </div>
+                </div>
+              </div>
+
+              {/* ************** DOWN PAYMENT ****************** */}
+              <div className="grid-cell-box grid-flex">
+                <div className="input-container ">
+                  <div className="financial-detail ">
+                    <div className="text-container">
+                      {/* <label forhtml="DownPaymentInput">Down Payment</label> */}
+                      Down Payment
+                    </div>
+                    <div className="down-payment-wrapper">
+                      {/* left payment */}
+                      <input className="left-split-financial-input" id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={(e) => setDownPaymentTotal(e.target.value)} value={downPaymentFormat} />
+                      {/* Down Payment right Textarea */}
+                      <input className="right-split-financial-input" style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(downPaymentRateFormat)} />
                     </div>
                   </div>
-                  <select id="LoanTypeInput" value={loanType} className="select-input" onChange={(e) => setType(e.target.value)}>
-                    <option value="30-year fixed">30-year fixed</option>
-                    <option value="20-year fixed">20-year fixed</option>
-                    <option value="15-year fixed">15-year fixed</option>
-                    <option value="10-year fixed">10-year fixed</option>
-                    <option value="FHA 30-year fixed">FHA 30-year fixed</option>
-                    <option value="FHA 15-year fixed">FHA 15-year fixed</option>
-                    <option value="VA 30-year fixed">VA 30-year fixed</option>
-                    <option value="VA 30-year fixed">VA 15-year fixed</option>
-                  </select>
+                  <div className="slider-container">
+                    {/* Down Paypment Slider */}
+                    <input className="range" type="range" min="0" max="30" onChange={(e) => setPaymentRate(e.target.value)} value={downPaymentRate} />
+                  </div>
+                </div>
+              </div>
+
+              {/* ************** INTEREST RATE ****************** */}
+              <div className="grid-cell-box grid-flex">
+                <div className="input-container ">
+                  <div className="financial-detail ">
+                    <div className="text-container">
+                      {/* <label forhtml="InterestRateInput">Interest Rate</label> */}
+                      Interest Rate
+                    </div>
+                    <input id="InterestRateInput" className="interest-rate-input" style={{ width: '75px' }} type="text" onChange={(e) => setInterestRate(e.target.value)} value={interestRateFormat} />
+                  </div>
+                  <div className="slider-container">
+                    <input className="range" type="range" min="0.0" max="6.50" step="0.10" onChange={(e) => setInterestRate(e.target.value)} value={interestRate} />
+                  </div>
+                </div>
+              </div>
+
+              {/* ************** LOAN TYPE****************** */}
+              <div className="grid-cell-box grid-flex">
+                <div className="input-container ">
+                  <div className="financial-detail ">
+                    <div className="text-container">
+                      {/* <label forhtml="LoanTypeInput">Loan Type</label> */}
+                      Loan Type
+                    </div>
+                  </div>
+                  <div className="select-container">
+                    <div className="drop-down-container">
+                      <div className="drop-down-arrow ">
+                        {loanType}
+                      </div>
+                      <div className="svg-container">
+                        <svg className="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M15.961 18.183l7.056-7.147 1.893 1.868-8.951 9.068-8.927-9.069 1.896-1.866z" fill="#869099"> </path>
+                        </svg>
+                      </div>
+                    </div>
+                    <select id="LoanTypeInput" value={loanType} className="select-input" onChange={(e) => setType(e.target.value)}>
+                      <option value="30-year fixed">30-year fixed</option>
+                      <option value="20-year fixed">20-year fixed</option>
+                      <option value="15-year fixed">15-year fixed</option>
+                      <option value="10-year fixed">10-year fixed</option>
+                      <option value="FHA 30-year fixed">FHA 30-year fixed</option>
+                      <option value="FHA 15-year fixed">FHA 15-year fixed</option>
+                      <option value="VA 30-year fixed">VA 30-year fixed</option>
+                      <option value="VA 30-year fixed">VA 15-year fixed</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -143,8 +152,8 @@ function App() {
                 </div>
               </div>
               <div className="price-text">
-                Change
-                {/* principal and interst */}
+                $
+                {principalInterestVal}
               </div>
             </div>
           </div>
