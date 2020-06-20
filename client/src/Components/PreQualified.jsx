@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PreQualified = () => {
-  console.log('hi');
   return (
     <div className="pre-qualified-container">
       <div className="payment-cell center-cell">
