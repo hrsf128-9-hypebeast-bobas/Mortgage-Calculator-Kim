@@ -21,4 +21,8 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    // allows you to use just export filename instead of .jsx
+    extensions: ['*', '.js', '.jsx'],
+  },
 };
