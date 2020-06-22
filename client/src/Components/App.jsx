@@ -29,7 +29,7 @@ function App() {
   const propertyTaxes = Math.ceil((homePriceVal * 0.01) / 12);
 
   /* *** HOME INSURANCE *** */
-  const insurance = 75;
+  const homeIns = 75;
 
   /* *** MORTAGE INS. FORMULA *** */
   if ((downPaymentTotal) === 0) {
@@ -42,21 +42,21 @@ function App() {
 
   /* *** MONTHLY MORTGAGE PAYMENTS *** */
   const nf = new Intl.NumberFormat(); // adds commas
-  const monthlyMortgage = nf.format(principalInterestVal + propertyTaxes + insurance + mortgageIns);
+  const monthlyMortgage = principalInterestVal + propertyTaxes + homeIns + mortgageIns;
+  const mortgageFormat = nf.format(principalInterestVal + propertyTaxes + homeIns + mortgageIns);
 
   return (
-    <div className="pageLayout">
+    <div className="page-layout">
       <div className="affordability-container">
-        <CostDetails monthlyMortgage={monthlyMortgage} />
+        <CostDetails monthlyMortgage={mortgageFormat} />
         <FinancialDetails sethomePriceVal={sethomePriceVal} homePriceVal={Number(homePriceVal)} downPaymentTotal={downPaymentTotal} setDownPaymentTotal={setDownPaymentTotal} downPaymentRate={Number(downPaymentRate)} setPaymentRate={setPaymentRate} interestRate={Number(interestRate)} setInterestRate={setInterestRate} loanType={loanType} setLoanType={setLoanType} />
       </div>
-      {/* ************** GRAPH CONTAINER  ****************** */}
       <div className="graph-container">
         {/* ************** VISUAL GRAPH  ****************** */}
-        <DonutGraph />
+        <DonutGraph principal={principalInterestVal} propertyTaxes={propertyTaxes} homeIns={homeIns} mortgageIns={mortgageIns} monthlyMortgage={monthlyMortgage} />
         {/* ************** GRAPH INFO ****************** */}
         <div className="affordability-table">
-          <PaymentContainer principal={principalInterestVal} taxes={propertyTaxes} insurance={insurance} mortgage={mortgageIns} />
+          <PaymentContainer principal={principalInterestVal} taxes={propertyTaxes} homeIns={homeIns} mortgage={mortgageIns} />
           <div className="extra-padding"> </div>
           <PreQualified />
         </div>

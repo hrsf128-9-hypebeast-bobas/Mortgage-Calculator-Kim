@@ -5,6 +5,7 @@ const InterestRate = (props) => {
   const {
     interestRateFormat, setInterestRate, interestRate,
   } = props;
+
   return (
     <div className="grid-cell-box grid-flex">
       <div className="input-container ">

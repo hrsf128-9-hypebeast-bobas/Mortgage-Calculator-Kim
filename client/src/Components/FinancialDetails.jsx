@@ -15,6 +15,7 @@ const FinancialDetails = (props) => {
   const downPaymentFormat = `$${nf.format(downPaymentTotal)}`;
   const downPaymentRateFormat = `${downPaymentRate}%`;
   const interestRateFormat = `${interestRate}%`;
+
   return (
     <div className="input-container">
       <div className="flex-container-padding">
