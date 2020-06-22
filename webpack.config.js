@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 const path = require('path');
 // client
 const SRC_DIR = path.join(__dirname, '/client/src');
@@ -10,16 +11,18 @@ module.exports = {
     path: DIST_DIR, // output dir relative to html page
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?/,
-        include: SRC_DIR,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'env'],
-        },
-      },
-    ],
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env']
+          }
+        }
+      }
+    ]
   },
   resolve: {
     // allows you to use just export filename instead of .jsx

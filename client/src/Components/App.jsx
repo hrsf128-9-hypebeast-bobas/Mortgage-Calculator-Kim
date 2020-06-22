@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import CostDetails from './CostDetails';
 import FinancialDetails from './FinancialDetails';
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="page-layout">
+      <h1>Welcome!</h1>
       <div className="affordability-container">
         <CostDetails monthlyMortgage={mortgageFormat} />
         <FinancialDetails sethomePriceVal={sethomePriceVal} homePriceVal={Number(homePriceVal)} downPaymentTotal={downPaymentTotal} setDownPaymentTotal={setDownPaymentTotal} downPaymentRate={Number(downPaymentRate)} setPaymentRate={setPaymentRate} interestRate={Number(interestRate)} setInterestRate={setInterestRate} loanType={loanType} setLoanType={setLoanType} />
