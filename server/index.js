@@ -8,7 +8,8 @@ const Mortgage = require('../database/Mortgage.js'); // the model
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/', express.static(path.join(__dirname, '../client/dist/')));
+// app.use('/', express.static(path.join(__dirname, '../client/dist/')));
+app.use(express.static('./public'));
 
 app.get('/mortgage', (req, res) => {
   // query database
