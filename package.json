@@ -11,6 +11,11 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hrsf128-9-hypebeast-bobas/Mortage-Calculator-Kim.git"
@@ -23,16 +28,23 @@
   },
   "homepage": "https://github.com/hrsf128-9-hypebeast-bobas/Mortage-Calculator-Kim#readme",
   "dependencies": {
+    "@testing-library/react": "^10.3.0",
+    "@testing-library/react-hooks": "^3.3.0",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "enzyme-to-json": "^3.5.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jquery": "^3.5.1",
+    "mocha": "^8.0.1",
     "mongoose": "^5.9.19",
+    "node-fetch": "^2.6.0",
     "nodemon": "^2.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.5"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
@@ -49,6 +61,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "jest": "^25.2.2",
+    "react-test-renderer": "^16.13.1",
     "supertest": "^4.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"

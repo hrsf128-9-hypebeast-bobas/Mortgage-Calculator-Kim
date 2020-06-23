@@ -1,37 +1,26 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
+import PreQualifiedItems from './PreQualifiedItems';
 
 const PreQualified = () => {
+  const dataArray = [
+    {
+      id: 23423,
+      item: <button type="button" className="pre-qualified-btn">Get Pre-Qualified</button>,
+    },
+    {
+      id: 233242423,
+      item: 'or',
+    },
+    {
+      id: 323241,
+      item: <a href="https://www.trulia.com/mortgage-rates/Palo_Alto,CA/?cta=rates&auto=true&value=4798000&down=959600&zip=94306&loantype=purchase">See today's mortgage rates</a>,
+    },
+  ];
+
   return (
-    <div className="pre-qualified-container">
-      <div className="payment-cell center-cell">
-        <div className="payment-content">
-          <div className="qualified-center">
-            <button type="button" className="pre-qualified-btn">Get Pre-Qualified</button>
-          </div>
-        </div>
-      </div>
-      {/* **************** OR **************** */}
-      <div className="payment-container seperate-cols">
-        <div className="payment-cell center-cell">
-          <div className="payment-content">
-            <div className="qualified-center">
-              <div className="other-text">
-                or
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* **************** SEE TODAY'S MORTGAGE RATES **************** */}
-      <div className="payment-container seperate-cols">
-        <div className="payment-cell center-cell">
-          <div className="qualified-center">
-            <div className="other-text" style={{ color: 'teal' }}>
-              See today's mortgage rates
-            </div>
-          </div>
-        </div>
-      </div>
+    <div>
+      {dataArray.map((data) => <PreQualifiedItems key={data.id} data={data} />)}
     </div>
   );
 };
