@@ -1,26 +1,39 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import PreQualifiedItems from './PreQualifiedItems';
+import styles from '../styles/PaymentContainer.css';
 
 const PreQualified = () => {
-  const dataArray = [
-    {
-      id: 23423,
-      item: <button type="button" className="pre-qualified-btn">Get Pre-Qualified</button>,
-    },
-    {
-      id: 233242423,
-      item: 'or',
-    },
-    {
-      id: 323241,
-      item: <a href="https://www.trulia.com/mortgage-rates/Palo_Alto,CA/?cta=rates&auto=true&value=4798000&down=959600&zip=94306&loantype=purchase">See today's mortgage rates</a>,
-    },
-  ];
-
   return (
-    <div>
-      {dataArray.map((data) => <PreQualifiedItems key={data.id} data={data} />)}
+    <div className={styles.preQualifiedContainer}>
+      <div className={styles.paymentCell && styles.centerCell}>
+        <div className={styles.paymentContent}>
+          <div className={styles.qualifiedCenter}>
+            <button type="button" className={styles.preQualifiedBtn}>Get Pre-Qualified</button>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell && styles.centerCell}>
+          <div className={styles.paymentContent}>
+            <div className={styles.qualifiedCenter}>
+              <div className={styles.otherText}>
+                or
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell && styles.centerCell}>
+          <div className={styles.qualifiedCenter}>
+            <div className={styles.otherText}>
+              See today's mortgage rates
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

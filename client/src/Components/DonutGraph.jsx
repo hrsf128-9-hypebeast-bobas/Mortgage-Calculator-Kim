@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/DonutGraph.css';
+
 import DonutEntries from './DonutEntries';
 import Empty from './Empty';
 
@@ -42,17 +44,18 @@ const DonutGraph = (props) => {
 
   const donutDiv = <DonutEntries pDash={pDash} tDash={tDash} taxOffset={taxOffset} hDash={hDash} homeOffset={homeOffset} mDash={mDash} mortOffset={mortOffset} />;
   const empty = <Empty />;
+
   return (
-    <div className="donut-chart-padding">
-      <div className="donut-container">
+    <div className={styles.donutChartPadding}>
+      <div className={styles.donutContainer}>
         {showDonut ? donutDiv : empty}
-        <div className="donut-label-padding">
-          <div className="donut-labels">
-            <div className="donut-price">
+        <div className={styles.donutLabelPadding}>
+          <div className={styles.donutLabels}>
+            <div className={styles.donutPrice}>
               $
               {nf.format(monthlyMortgage)}
             </div>
-            <div className="donut-month">
+            <div className={styles.donutMonth}>
               /month
             </div>
           </div>

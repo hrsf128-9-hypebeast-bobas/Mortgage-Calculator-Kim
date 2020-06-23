@@ -5,6 +5,7 @@ import HomePrice from './HomePrice';
 import DownPayment from './DownPayment';
 import InterestRate from './InterestRate';
 import LoanType from './LoanType';
+import styles from '../styles/FinancialDetails.css';
 
 const FinancialDetails = (props) => {
   const {
@@ -18,13 +19,17 @@ const FinancialDetails = (props) => {
   const interestRateFormat = `${interestRate}%`;
 
   return (
-    <div className="input-container">
-      <div className="flex-container-padding">
-        <div className="grid-container-padding">
+    <div className={styles.inputContainer}>
+      <div className={styles.flexContainerPadding}>
+        <div className={styles.gridContainerPadding}>
           <HomePrice homePriceVal={homePriceVal} homePriceFormat={homePriceFormat} sethomePriceVal={sethomePriceVal} />
+
           <DownPayment setDownPaymentTotal={setDownPaymentTotal} downPaymentFormat={downPaymentFormat} setPaymentRate={setPaymentRate} downPaymentRateFormat={downPaymentRateFormat} downPaymentRate={downPaymentRate} />
+
           <InterestRate interestRateFormat={interestRateFormat} setInterestRate={setInterestRate} interestRate={interestRate} />
+
           <LoanType loanType={loanType} setInterestRate={setInterestRate} setLoanType={setLoanType} />
+
         </div>
       </div>
     </div>
