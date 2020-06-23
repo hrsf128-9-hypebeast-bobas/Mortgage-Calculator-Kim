@@ -1,0 +1,22 @@
+.affordabilityText {
+  margin-top: 15px;
+  padding: 0px 0px 10px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* Calculation monthly mortgage */
+.calculationContainer {
+  padding: 0px 0px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.calculationText {
+  font-weight: bold;
+}
+
+.estPayment {
+  font-size: 16px;
+}

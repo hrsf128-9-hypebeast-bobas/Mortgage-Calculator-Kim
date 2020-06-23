@@ -1,0 +1,33 @@
+.pageLayout {
+  max-width: 940px;
+  margin: auto;
+}
+
+.affordabilityContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0px;
+}
+
+.graphContainer {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.affordabilityTable {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 50%; /*  prevent payment type and amount from over lapping*/
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  padding: 16px 0px 16px 16px;
+}
+
+.extraPadding{
+  padding: 0px 0px 32px;
+}

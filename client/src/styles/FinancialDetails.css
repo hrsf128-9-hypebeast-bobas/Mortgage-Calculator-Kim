@@ -1,0 +1,208 @@
+/* spaces out all input containers*/
+.inputContainer{
+  margin: 0px 8px;
+}
+
+/* pushes financial details inward */
+.flexContainerPadding {
+  /* width: 100%; */
+  background-color: rgb(245, 246, 247);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 16px;
+}
+
+/*Grid component*/
+/* fixes alignment of financial detail component so it displays horizontally*/
+.gridContainerPadding {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* fixes padding between each cell box and seperates range sldier from connecting*/
+.gridContainerPadding > .gridCellBox {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0px 9px 0px;
+}
+
+/* stacks divs on top of each other and fill up the screen during resize */
+/* if anything less than 735pixels wide, then true run this*/
+@media all and (max-width: 735px) {
+  .gridContainerPadding {
+    display: flex;
+    flex-direction:column;
+    width: 300%;
+  }
+}
+/*otherwise, ignore code block*/
+
+@media all and (min-width: 376px){
+  .gridFlex {
+    width: 33%;
+  }
+}
+
+
+/* home price, down payment, ..., loan type*/
+/* fixes `down payment` words collapsing into eachother*/
+.financialDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  min-height: 48px;
+}
+
+.textContainer {
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.5;
+}
+
+/*Down payment text area*/
+.downPaymentWrapper {
+  display: flex;
+  justify-content: flex-end; /* connents the left and right payment halves together */
+}
+
+/*Left payment textbox*/
+.leftSplitFinancialInput {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  padding: 8px;
+  border-radius: 8px 0px 0px 8px;
+}
+
+/*right payment textbox*/
+.rightSplitFinancialInput {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  padding: 8px;
+  border-radius: 0px 8px 8px 0px;
+}
+
+/* HOME PRICE */
+.homePriceInput {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(205, 209, 212);
+  padding: 8px;
+}
+
+/* INTEREST RATE */
+.interestRateInput {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  padding: 8px;
+}
+
+
+/* LOAN TYPE */
+.selectContainer{
+  position: relative; /* fixes option width from expanding to whole screen*/
+  font-weight: 550;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* keeps text and arrow on the same line*/
+.dropDownContainer{
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+}
+
+/* add space between arrow and text*/
+.dropDownArrow {
+  width: 100%;
+  margin: 0px 8px;
+}
+
+/* got from trulia*/
+.svgContainer .svg {
+  height: 24px;
+}
+
+/* drop down menu*/
+.selectInput {
+  position: absolute; /*options stay relative to select menu's location*/
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* add border color whenever select tag/input field is clicked*/
+.selectContainer:focus-within{
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: teal;
+}
+
+.dropDownContainer:focus-within{
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: teal;
+}
+
+.homePriceInput:focus-within{
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: teal;
+}
+
+.leftSplitFinancialInput:focus-within{
+  border-width: 3px;
+  border-style: solid;
+  padding: 8px;
+  border-color: teal;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.rightSplitFinancialInput:focus-within{
+  border-width: 3px;
+  border-style: solid;
+  padding: 8px;
+  border-color: teal;
+  border-radius: 0px 8px 8px 0px;
+}
+
+.interestRateInput:focus-within{
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: teal;
+}
