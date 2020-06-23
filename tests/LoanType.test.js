@@ -23,7 +23,7 @@ describe('PaymentContainer component', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('should render a loan type value', () => {
+  it('should search for value whose selected option matches 30-year fixed', () => {
     render(<LoanType />);
     const selectElement = screen.getByDisplayValue('30-year fixed');
   });

@@ -10,19 +10,18 @@ import PaymentContainer from './PaymentContainer';
 import PreQualified from './PreQualified';
 
 function App() {
-  const [homePriceVal, sethomePriceVal] = useState([]);
   const [downPaymentRate, setPaymentRate] = useState(20);
   const [setDownPaymentTotal] = useState(750);
   const [interestRate, setInterestRate] = useState(3.49);
   const [loanType, setLoanType] = useState('30-year fixed');
 
+  const [homePriceVal, sethomePriceVal] = useState(null);
   useEffect(() => {
-    // run useEffect once
-    axios.get('http://localhost:3333/mortgage')
-      .then((results) => results.data)
+    fetch('http://localhost:3333/mortgage')
+      .then((results) => results.json())
       .then((data) => {
-        console.log('GET success');
-        console.log('data', data);
+        // console.log('GET success');
+        // console.log('data', data);
         sethomePriceVal(data[0].mortgagePrice);
       });
   }, []);

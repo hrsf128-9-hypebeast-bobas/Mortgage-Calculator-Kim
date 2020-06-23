@@ -29,5 +29,4 @@ describe('App component', () => {
   it('renders without crashing', () => {
     expect(wrapper.exists()).toBe(true);
   });
-
 });

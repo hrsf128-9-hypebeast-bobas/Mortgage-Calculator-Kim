@@ -34,4 +34,10 @@ describe('HomePrice component', () => {
   it('the default value for input field should be empty', () => {
     expect(wrapper.find('input[id="homePriceInput"]').prop('value')).toBe();
   });
+
+  it('should search for value whose selected option matches Home Price', () => {
+    render(<HomePrice />);
+    const selectElement = screen.getByText('Home Price', { exact: false });
+  });
+
 });

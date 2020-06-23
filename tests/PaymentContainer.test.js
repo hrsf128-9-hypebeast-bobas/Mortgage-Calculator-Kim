@@ -29,4 +29,9 @@ describe('PaymentContainer component', () => {
     expect(PaymentContainerInstance.length).toBe(1);
     expect(PaymentItemsInstance.length).toBe(4);
   });
+
+  it('initially displays 4 items', () => {
+    const wrapper = mount(<PaymentContainer />);
+    expect(wrapper.find('.payment-container')).toHaveLength(4);
+  });
 });
