@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const HomePrice = (props) => {
   const {
@@ -19,7 +19,7 @@ const HomePrice = (props) => {
           <div className="text-container">
             Home Price
           </div>
-          <input data-testid="button" id="homePriceInput" className="home-price-input" style={{ width: '112px' }} type="text" onChange={() => console.log('hit')} value={homePriceFormat} />
+          <input id="homePriceInput" className="home-price-input" style={{ width: '112px' }} type="text" onChange={() => console.log('hit')} value={homePriceFormat} />
         </div>
         <div className="slider-container">
           {/* Home Price Slider */}
@@ -30,10 +30,10 @@ const HomePrice = (props) => {
   );
 };
 
-HomePrice.propTypes = {
-  homePriceVal: PropTypes.number.isRequired,
-  homePriceFormat: PropTypes.string.isRequired,
-  sethomePriceVal: PropTypes.func.isRequired,
-};
+// HomePrice.propTypes = {
+//   homePriceVal: PropTypes.number.isRequired,
+//   homePriceFormat: PropTypes.string.isRequired,
+//   sethomePriceVal: PropTypes.func.isRequired,
+// };
 
 export default HomePrice;

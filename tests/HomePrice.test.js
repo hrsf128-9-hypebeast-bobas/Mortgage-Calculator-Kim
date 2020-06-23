@@ -12,21 +12,22 @@ import renderer from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import App from '../client/src/Components/App';
-import LoanType from '../client/src/Components/LoanType';
-
-global.fetch = require('node-fetch');
+import HomePrice from '../client/src/Components/HomePrice';
 
 afterEach(cleanup);
 
 describe('App component', () => {
-  const wrapper = shallow(<App />);
-
-  it('renders correctly enzyme', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
-  });
+  const wrapper = shallow(<HomePrice />);
 
   it('renders without crashing', () => {
     expect(wrapper.exists()).toBe(true);
+  });
+
+  it('should render a home price input tag', () => {
+    expect(wrapper.find('input[id="homePriceInput"]').exists()).toBe(true);
+  });
+
+  it('the default value for input field should be empty', () => {
+    expect(wrapper.find('input[id="homePriceInput"]').prop('value')).toBe();
   });
 });
