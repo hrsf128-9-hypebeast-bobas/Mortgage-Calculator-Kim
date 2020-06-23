@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import PaymentItems from './PaymentItems';
 
 const PaymentContainer = (props) => {
@@ -43,11 +43,11 @@ const PaymentContainer = (props) => {
   );
 };
 
-PaymentContainer.propTypes = {
-  principal: PropTypes.number.isRequired,
-  taxes: PropTypes.number.isRequired,
-  homeIns: PropTypes.number.isRequired,
-  mortgage: PropTypes.number.isRequired,
-};
+// PaymentContainer.propTypes = {
+//   principal: PropTypes.number.isRequired,
+//   taxes: PropTypes.number.isRequired,
+//   homeIns: PropTypes.number.isRequired,
+//   mortgage: PropTypes.number.isRequired,
+// };
 
 export default PaymentContainer;

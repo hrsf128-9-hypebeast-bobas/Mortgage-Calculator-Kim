@@ -7,9 +7,10 @@ const LoanType = (props) => {
   } = props;
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    setInterestRate(Number((value).slice(0, 4)));
-    setLoanType(value.slice(5));
+    const {value } = e.target;
+    console.log('value', value);
+    setInterestRate(Number((e.target.value).slice(0, 4)));
+    setLoanType(e.target.value.slice(5));
   };
 
   return (

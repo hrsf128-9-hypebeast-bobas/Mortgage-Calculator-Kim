@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import regeneratorRuntime from 'regenerator-runtime';
 import CostDetails from './CostDetails';
 import FinancialDetails from './FinancialDetails';
@@ -9,23 +10,24 @@ import PaymentContainer from './PaymentContainer';
 import PreQualified from './PreQualified';
 
 function App() {
-  const [homePriceVal, sethomePriceVal] = useState(null);
+  const [homePriceVal, sethomePriceVal] = useState([]);
+  const [downPaymentRate, setPaymentRate] = useState(20);
+  const [setDownPaymentTotal] = useState(750);
+  const [interestRate, setInterestRate] = useState(3.49);
+  const [loanType, setLoanType] = useState('30-year fixed');
+
   useEffect(() => {
-    fetch('http://localhost:3333/mortgage')
-      .then((results) => results.json())
+    // run useEffect once
+    axios.get('http://localhost:3333/mortgage')
+      .then((results) => results.data)
       .then((data) => {
-        // console.log('GET success');
-        // console.log('data', data);
+        console.log('GET success');
+        console.log('data', data);
         sethomePriceVal(data[0].mortgagePrice);
       });
   }, []);
 
   // const [homePriceVal, sethomePriceVal] = useState(4198234);
-  // console.log('homePriceVal', homePriceVal);
-  const [downPaymentRate, setPaymentRate] = useState(20);
-  const [setDownPaymentTotal] = useState(750);
-  const [interestRate, setInterestRate] = useState(3.49);
-  const [loanType, setLoanType] = useState('30-year fixed');
 
   let mortgageIns = 0;
 

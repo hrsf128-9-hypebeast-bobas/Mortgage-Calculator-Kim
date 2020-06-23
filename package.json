@@ -30,6 +30,7 @@
   "dependencies": {
     "@testing-library/react": "^10.3.0",
     "@testing-library/react-hooks": "^3.3.0",
+    "axios": "^0.19.2",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",

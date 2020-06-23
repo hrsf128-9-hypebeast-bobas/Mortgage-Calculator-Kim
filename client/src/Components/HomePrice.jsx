@@ -19,7 +19,7 @@ const HomePrice = (props) => {
           <div className="text-container">
             Home Price
           </div>
-          <input id="homePriceInput" className="home-price-input" style={{ width: '112px' }} type="text" onChange={() => console.log('hit')} value={homePriceFormat} />
+          <input id="homePriceInput" className="home-price-input" style={{ width: '112px' }} type="text" onChange={changePrice} value={homePriceFormat} />
         </div>
         <div className="slider-container">
           {/* Home Price Slider */}

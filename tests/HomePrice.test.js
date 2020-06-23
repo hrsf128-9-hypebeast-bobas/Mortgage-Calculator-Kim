@@ -7,7 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'mocha';
 import { shallow, mount } from 'enzyme';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
 import { renderHook, act } from '@testing-library/react-hooks';
@@ -16,7 +16,7 @@ import HomePrice from '../client/src/Components/HomePrice';
 
 afterEach(cleanup);
 
-describe('App component', () => {
+describe('HomePrice component', () => {
   const wrapper = shallow(<HomePrice />);
 
   it('renders without crashing', () => {
@@ -25,6 +25,10 @@ describe('App component', () => {
 
   it('should render a home price input tag', () => {
     expect(wrapper.find('input[id="homePriceInput"]').exists()).toBe(true);
+  });
+
+  it('should render a range input tag', () => {
+    expect(wrapper.find('input[id="homePriceSlider"]').exists()).toBe(true);
   });
 
   it('the default value for input field should be empty', () => {
