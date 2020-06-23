@@ -1,16 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const LoanType = (props) => {
   const {
     loanType, setInterestRate, setLoanType,
   } = props;
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setInterestRate(Number((value).slice(0, 4)));
+    setLoanType(value.slice(5));
+  };
+
   return (
     <div className="grid-cell-box grid-flex">
       <div className="input-container ">
         <div className="financial-detail ">
           <div className="text-container">
-            {/* <label forhtml="LoanTypeInput">Loan Type</label> */}
+
             Loan Type
           </div>
         </div>
@@ -25,7 +32,7 @@ const LoanType = (props) => {
               </svg>
             </div>
           </div>
-          <select id="LoanTypeInput" value={loanType} className="select-input" onChange={(e) => { setInterestRate(Number((e.target.value).slice(0, 4))); setLoanType((e.target.value).slice(5)); }}>
+          <select id="LoanTypeInput" value={loanType} className="select-input" onChange={handleChange}>
             <option value="3.49 30-year fixed">30-year fixed</option>
             <option value="3.27 20-year fixed">20-year fixed</option>
             <option value="2.86 15-year fixed">15-year fixed</option>
@@ -41,10 +48,10 @@ const LoanType = (props) => {
   );
 };
 
-LoanType.propTypes = {
-  loanType: PropTypes.string.isRequired,
-  setInterestRate: PropTypes.func.isRequired,
-  setLoanType: PropTypes.func.isRequired,
-};
+// LoanType.propTypes = {
+//   loanType: PropTypes.string.isRequired,
+//   setInterestRate: PropTypes.func.isRequired,
+//   setLoanType: PropTypes.func.isRequired,
+// };
 
 export default LoanType;

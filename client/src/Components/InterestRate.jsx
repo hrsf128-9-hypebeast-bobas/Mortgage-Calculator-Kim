@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const InterestRate = (props) => {
   const {
@@ -24,10 +24,10 @@ const InterestRate = (props) => {
   );
 };
 
-InterestRate.propTypes = {
-  interestRate: PropTypes.number.isRequired,
-  interestRateFormat: PropTypes.string.isRequired,
-  setInterestRate: PropTypes.func.isRequired,
-};
+// InterestRate.propTypes = {
+//   interestRate: PropTypes.number.isRequired,
+//   interestRateFormat: PropTypes.string.isRequired,
+//   setInterestRate: PropTypes.func.isRequired,
+// };
 
 export default InterestRate;

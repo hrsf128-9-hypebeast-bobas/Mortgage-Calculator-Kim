@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders correctly enzyme 1`] = `
+<div
+  className="page-layout"
+>
+  <div
+    className="affordability-container"
+  >
+    <CostDetails
+      monthlyMortgage="75"
+    />
+    <FinancialDetails
+      downPaymentRate={20}
+      downPaymentTotal={0}
+      homePriceVal={0}
+      interestRate={3.49}
+      loanType="30-year fixed"
+      setDownPaymentTotal={750}
+      setInterestRate={[Function]}
+      setLoanType={[Function]}
+      setPaymentRate={[Function]}
+      sethomePriceVal={[Function]}
+    />
+  </div>
+  <div
+    className="graph-container"
+  >
+    <DonutGraph
+      homeIns={75}
+      monthlyMortgage={75}
+      mortgageIns={0}
+      principal={0}
+      propertyTaxes={0}
+    />
+    <div
+      className="affordability-table"
+    >
+      <PaymentContainer
+        homeIns={75}
+        mortgage={0}
+        principal={0}
+        taxes={0}
+      />
+      <div
+        className="extra-padding"
+      >
+         
+      </div>
+      <PreQualified />
+    </div>
+  </div>
+</div>
+`;

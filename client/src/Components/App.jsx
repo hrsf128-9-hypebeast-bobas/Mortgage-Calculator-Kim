@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import regeneratorRuntime from 'regenerator-runtime';
 import CostDetails from './CostDetails';
 import FinancialDetails from './FinancialDetails';
 import DonutGraph from './DonutGraph';
@@ -7,7 +9,19 @@ import PaymentContainer from './PaymentContainer';
 import PreQualified from './PreQualified';
 
 function App() {
-  const [homePriceVal, sethomePriceVal] = useState(4798000);
+  const [homePriceVal, sethomePriceVal] = useState(null);
+  useEffect(() => {
+    fetch('http://localhost:3333/mortgage')
+      .then((results) => results.json())
+      .then((data) => {
+        // console.log('GET success');
+        // console.log('data', data);
+        sethomePriceVal(data[0].mortgagePrice);
+      });
+  }, []);
+
+  // const [homePriceVal, sethomePriceVal] = useState(4198234);
+  // console.log('homePriceVal', homePriceVal);
   const [downPaymentRate, setPaymentRate] = useState(20);
   const [setDownPaymentTotal] = useState(750);
   const [interestRate, setInterestRate] = useState(3.49);
@@ -48,7 +62,6 @@ function App() {
 
   return (
     <div className="page-layout">
-      <h1>Welcome!</h1>
       <div className="affordability-container">
         <CostDetails monthlyMortgage={mortgageFormat} />
         <FinancialDetails sethomePriceVal={sethomePriceVal} homePriceVal={Number(homePriceVal)} downPaymentTotal={downPaymentTotal} setDownPaymentTotal={setDownPaymentTotal} downPaymentRate={Number(downPaymentRate)} setPaymentRate={setPaymentRate} interestRate={Number(interestRate)} setInterestRate={setInterestRate} loanType={loanType} setLoanType={setLoanType} />

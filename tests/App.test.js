@@ -1,16 +1,33 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable padded-blocks */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import ReactDOM from 'react-dom';
+import 'mocha';
+import { shallow, mount } from 'enzyme';
+import { render, fireEvent, cleanup } from '@testing-library/react';
+import renderer from 'react-test-renderer';
+import toJson from 'enzyme-to-json';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 import App from '../client/src/Components/App';
+import LoanType from '../client/src/Components/LoanType';
 
-describe('App', () => {
+global.fetch = require("node-fetch");
+
+afterEach(cleanup);
+
+describe('App component', () => {
   const wrapper = shallow(<App />);
 
-  it ('should work', () => {
-    expect(wrapper.find('h1').exists()).toBe(true);
+  it('renders correctly enzyme', () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it ('should still work', () => {
-    expect(wrapper.find('h1').text()).toBe('Welcome!');
+  it('renders without crashing', () => {
+    expect(wrapper.exists()).toBe(true);
   });
+
 });
