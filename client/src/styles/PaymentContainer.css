@@ -1,0 +1,121 @@
+/* univerisal boxing is so cool*/
+* {
+  box-sizing: border-box;
+}
+* {
+  outline: none;
+}
+
+/* fill div in with table details*/
+.seperateCols {
+  width: 100%;
+}
+
+/* stacks each table item on top of each other*/
+.paymentCell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+/* fixes space between each child*/
+.paymentContent {
+  width: 100%;
+  margin: 0px 8px;
+}
+
+/* the circles next to each title */
+/* font and line spacing*/
+.priceText {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 1.7px;
+  font-weight: 550;
+}
+
+.principalDot{
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: rgb(5, 34, 134);
+}
+
+.propertyTaxDot{
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color:rgb(0, 173, 187);;
+}
+
+.homeInsuranceDot{
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: rgb(194, 213, 0);
+}
+.mortgageInsDot{
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color:rgb(206, 182, 255)
+}
+
+.extra-padding{
+  padding: 0px 0px 32px;
+}
+
+/* PREQUALIFIED SECTION*/
+
+.otherText {
+  width:100%;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 1.3px;
+}
+
+.centerCell{
+  text-align: center;
+  width: 100%;
+}
+
+.qualifiedCenter{
+  margin: 0px 8px;
+  width:100%;
+}
+
+.preQualifiedBtn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: white;
+  background-color: teal;
+  border-color: transparent;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 1.3px;
+  width: 70%;
+  border-width: 1px;
+}
+
+.preQualifiedBtn:hover{
+  color: teal;
+  background-color: white;
+  border-color: teal;
+}
+
+/* if at least 910 or less, then do this*/
+@media all and (max-width: 910px) {
+  .preQualifiedContainer{
+    width:100%;
+    display: flex;
+    flex-direction:column;
+  }
+  .qualifiedCenter{
+    width:100%;
+  }
+
+  .preQualifiedBtn{
+    width:100%;
+  }
+}

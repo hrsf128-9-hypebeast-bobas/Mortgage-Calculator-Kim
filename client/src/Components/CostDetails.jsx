@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/CostDetails.css';
 
 const CostDetails = (props) => {
   const {
@@ -8,14 +9,14 @@ const CostDetails = (props) => {
 
   return (
     <div>
-      <div className="affordability-text">
+      <div className={styles.affordabilityText}>
         Affordability
       </div>
-      <div className="calculation-container">
-        <div className="calculation-text">
+      <div className={styles.calculationContainer}>
+        <div className={styles.calculationText}>
           Calculate your monthly mortgage payments
         </div>
-        <div className="est-payment">
+        <div className={styles.estPayment}>
           Your est. payment: $
           {monthlyMortgage}
           /month

@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from '../styles/DonutGraph.css';
 
 const Empty = () => {
   return (
-    <div className="DonutChart__GraphContainer-sc-2m6s9o-0 jMRwWN">
+    <div className={styles.donutSize}>
       <svg viewBox="0 0 36 36">
         <circle cx="18" cy="18" r="12" fill="#fff" role="presentation"> </circle>
 
