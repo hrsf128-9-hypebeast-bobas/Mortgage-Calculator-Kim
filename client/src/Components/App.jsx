@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import regeneratorRuntime from 'regenerator-runtime';
 import styles from '../styles/App.css';
 
