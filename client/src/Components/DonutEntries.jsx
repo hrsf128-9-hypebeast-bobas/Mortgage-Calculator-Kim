@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/DonutGraph.css';
 
 const DonutEntries = (props) => {
   const {
@@ -7,7 +8,7 @@ const DonutEntries = (props) => {
   } = props;
 
   return (
-    <div className="donut-size">
+    <div className={styles.donutSize}>
       <svg viewBox="0 0 36 36">
         <circle cx="18" cy="18" r="12" fill="#fff"> </circle>
 

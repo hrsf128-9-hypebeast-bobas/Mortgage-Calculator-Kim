@@ -1,33 +1,39 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
+import styles from '../styles/PaymentContainer.css';
 
 const PreQualified = () => {
+  function handleSearch() {
+    window.location.assign('https://www.trulia.com/mortgages/pre-qualified/#/first-time');
+  }
+
   return (
-    <div className="pre-qualified-container">
-      <div className="payment-cell center-cell">
-        <div className="payment-content">
-          <div className="qualified-center">
-            <button type="button" className="pre-qualified-btn">Get Pre-Qualified</button>
+    <div className={styles.preQualifiedContainer}>
+      <div className={styles.paymentCell && styles.centerCell}>
+        <div className={styles.paymentContent}>
+          <div className={styles.qualifiedCenter}>
+            <button type="button" className={styles.preQualifiedBtn} onClick={handleSearch}>Get Pre-Qualified</button>
           </div>
         </div>
       </div>
-      {/* **************** OR **************** */}
-      <div className="payment-container seperate-cols">
-        <div className="payment-cell center-cell">
-          <div className="payment-content">
-            <div className="qualified-center">
-              <div className="other-text">
+
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell && styles.centerCell}>
+          <div className={styles.paymentContent}>
+            <div className={styles.qualifiedCenter}>
+              <div className={styles.otherText}>
                 or
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* **************** SEE TODAY'S MORTGAGE RATES **************** */}
-      <div className="payment-container seperate-cols">
-        <div className="payment-cell center-cell">
-          <div className="qualified-center">
-            <div className="other-text" style={{ color: 'teal' }}>
-              See today's mortgage rates
+
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell && styles.centerCell}>
+          <div className={styles.qualifiedCenter}>
+            <div className={styles.otherText} style={{ color: 'teal' }}>
+            <a href="https://www.trulia.com/mortgage-rates/Palo_Alto,CA/?cta=rates&auto=true&value=4798000&down=959600&zip=94306&loantype=purchase#request=ZR-YCFXMGBP">See today's mortgage rates</a>
             </div>
           </div>
         </div>

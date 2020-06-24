@@ -1,40 +1,85 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PaymentItems from './PaymentItems';
+import styles from '../styles/PaymentContainer.css';
 
 const PaymentContainer = (props) => {
-  const {
-    principal, taxes, homeIns, mortgage,
-  } = props;
-
   const nf = new Intl.NumberFormat(); // adds commas
-
-  const dataArray = [
-    {
-      dot: 'payment-title-dot principal-dot',
-      paymentContent: 'Principal & Interest',
-      priceText: `$${nf.format(principal)}`,
-    },
-    {
-      dot: 'payment-title-dot property-tax-dot',
-      paymentContent: 'Property Taxes',
-      priceText: `$${nf.format(taxes)}`,
-    },
-    {
-      dot: 'payment-title-dot home-insurance-dot',
-      paymentContent: 'Home Insurance',
-      priceText: `$${nf.format(homeIns)}`,
-    },
-    {
-      dot: 'payment-title-dot mortgage-ins-dot',
-      paymentContent: 'Mortgage ins. & other',
-      priceText: `$${nf.format(mortgage)}`,
-    },
-  ];
-
+  const {
+    principal, taxes, insurance, mortgage,
+  } = props;
   return (
     <div>
-      {dataArray.map((item, i) => <PaymentItems key={i} item={item} />)}
+      {/* **************** PRINCIPLE AND INTEREST **************** */}
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell}>
+          <div className={styles.paymentContent}>
+            <div className={styles.paymentCell} style={{ width: '100%' }}>
+              <div className={styles.principalDot}> </div>
+              <div className={styles.paymentContent}>
+                Principal & Interest
+              </div>
+            </div>
+          </div>
+          <div className={styles.priceText}>
+            $
+            {nf.format(principal)}
+          </div>
+        </div>
+      </div>
+
+      {/* **************** PROPERTY TAX **************** */}
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell}>
+          <div className={styles.paymentContent}>
+            <div className={styles.paymentCell} style={{ width: '100%' }}>
+              <div className={styles.propertyTaxDot}> </div>
+              <div className={styles.paymentContent}>
+                Property Taxes
+              </div>
+            </div>
+          </div>
+          <div className={styles.priceText}>
+            $
+            {nf.format(taxes)}
+          </div>
+        </div>
+      </div>
+
+      {/* **************** HOME INSURANCE **************** */}
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell}>
+          <div className={styles.paymentContent}>
+            <div className={styles.paymentCell} style={{ width: '100%' }}>
+              <div className={styles.homeInsuranceDot}> </div>
+              <div className={styles.paymentContent}>
+                Home Insurance
+              </div>
+            </div>
+          </div>
+          <div className={styles.priceText}>
+            $
+            {insurance}
+          </div>
+        </div>
+      </div>
+
+      {/* **************** MORTGAGE INS. & OTHER **************** */}
+      <div className={styles.seperateCols}>
+        <div className={styles.paymentCell}>
+          <div className={styles.paymentContent}>
+            <div className={styles.paymentCell} style={{ width: '100%' }}>
+              <div className={styles.mortgageInsDot}> </div>
+              <div className={styles.paymentContent}>
+                Mortgage ins. & other
+              </div>
+            </div>
+          </div>
+          <div className={styles.priceText}>
+            $
+            {nf.format(mortgage)}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -42,7 +87,7 @@ const PaymentContainer = (props) => {
 PaymentContainer.propTypes = {
   principal: PropTypes.number.isRequired,
   taxes: PropTypes.number.isRequired,
-  homeIns: PropTypes.number.isRequired,
+  insurance: PropTypes.number.isRequired,
   mortgage: PropTypes.number.isRequired,
 };
 

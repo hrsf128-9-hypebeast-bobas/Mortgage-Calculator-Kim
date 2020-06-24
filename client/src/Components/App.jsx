@@ -1,5 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import regeneratorRuntime from 'regenerator-runtime';
+import styles from '../styles/App.css';
+
 import CostDetails from './CostDetails';
 import FinancialDetails from './FinancialDetails';
 import DonutGraph from './DonutGraph';
@@ -7,11 +12,23 @@ import PaymentContainer from './PaymentContainer';
 import PreQualified from './PreQualified';
 
 function App() {
-  const [homePriceVal, sethomePriceVal] = useState(4798000);
   const [downPaymentRate, setPaymentRate] = useState(20);
   const [setDownPaymentTotal] = useState(750);
   const [interestRate, setInterestRate] = useState(3.49);
   const [loanType, setLoanType] = useState('30-year fixed');
+
+  const [homePriceVal, sethomePriceVal] = useState(null);
+  useEffect(() => {
+    fetch('http://localhost:3333/mortgage')
+      .then((results) => results.json())
+      .then((data) => {
+        // console.log('GET success');
+        // console.log('data', data);
+        sethomePriceVal(data[0].mortgagePrice);
+      });
+  }, []);
+
+  // const [homePriceVal, sethomePriceVal] = useState(4198234);
 
   let mortgageIns = 0;
 
@@ -47,21 +64,26 @@ function App() {
   const mortgageFormat = nf.format(principalInterestVal + propertyTaxes + homeIns + mortgageIns);
 
   return (
-    <div className="page-layout">
-      <h1>Welcome!</h1>
-      <div className="affordability-container">
+    <div className={styles.pageLayout}>
+
+      <div className={styles.affordabilityContainer}>
         <CostDetails monthlyMortgage={mortgageFormat} />
+
         <FinancialDetails sethomePriceVal={sethomePriceVal} homePriceVal={Number(homePriceVal)} downPaymentTotal={downPaymentTotal} setDownPaymentTotal={setDownPaymentTotal} downPaymentRate={Number(downPaymentRate)} setPaymentRate={setPaymentRate} interestRate={Number(interestRate)} setInterestRate={setInterestRate} loanType={loanType} setLoanType={setLoanType} />
+
       </div>
-      <div className="graph-container">
-        {/* ************** VISUAL GRAPH  ****************** */}
+
+      <div className={styles.graphContainer}>
         <DonutGraph principal={principalInterestVal} propertyTaxes={propertyTaxes} homeIns={homeIns} mortgageIns={mortgageIns} monthlyMortgage={monthlyMortgage} />
-        {/* ************** GRAPH INFO ****************** */}
-        <div className="affordability-table">
+
+        <div className={styles.affordabilityTable}>
           <PaymentContainer principal={principalInterestVal} taxes={propertyTaxes} homeIns={homeIns} mortgage={mortgageIns} />
-          <div className="extra-padding"> </div>
+
+          <div className={styles.extraPadding}> </div>
+
           <PreQualified />
         </div>
+
       </div>
     </div>
   );

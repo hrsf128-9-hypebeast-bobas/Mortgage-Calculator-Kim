@@ -1,0 +1,47 @@
+
+.donutChartPadding {
+  margin: 32px 32px 32px 16px;
+}
+
+.donutContainer {
+  width: 280px;
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  margin: auto;
+}
+
+.donutSize {
+  width: 280px;
+  height: 280px;
+}
+
+.donutLabelPadding {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: 0px;
+}
+
+.donutLabels {
+  flex-direction: column;
+  width: auto;
+  display: inline-block;
+}
+
+.donutPrice {
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 1.05;
+  align-self: center;
+}
+
+.donutMonth {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}

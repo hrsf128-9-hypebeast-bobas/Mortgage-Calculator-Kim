@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /* To do: locally scoping css */
 
+=======
+>>>>>>> 672904ca9f2fdc2782434e9058fa109a3b877cbb
 html, body {
   font-family: sans-serif;
   color: rgb(59, 65, 68);
@@ -9,6 +12,7 @@ html, body {
   letter-spacing: 0.8px;
 }
 
+<<<<<<< HEAD
 /* center entire layout*/
 .page-layout {
   max-width: 940px;
@@ -142,6 +146,8 @@ html, body {
   content: '$';
 }
 
+=======
+>>>>>>> 672904ca9f2fdc2782434e9058fa109a3b877cbb
 
 /*layout for slider*/
 input[type="range"]{
@@ -164,6 +170,7 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0px 1px 2px 5px white;
 }
 
+<<<<<<< HEAD
 /*Down payment text area*/
 .down-payment-wrapper {
   display: flex;
@@ -391,11 +398,14 @@ input[type="range"]::-webkit-slider-thumb {
   letter-spacing: 1.3px;
 }
 
+=======
+>>>>>>> 672904ca9f2fdc2782434e9058fa109a3b877cbb
 a{
   text-decoration: none;
   color: teal;
   font-size: 14px;
 }
+<<<<<<< HEAD
 
 .center-cell{
   text-align: center;
@@ -490,3 +500,5 @@ a{
   line-height: 1.5;
   text-align: center;
 }
+=======
+>>>>>>> 672904ca9f2fdc2782434e9058fa109a3b877cbb
