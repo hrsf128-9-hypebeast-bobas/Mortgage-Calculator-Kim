@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use('/', express.static(path.join(__dirname, '../client/dist/')));
 app.use(express.static('./public'));
 
-app.get('/mortgage', (req, res) => {
+app.get('/home1', (req, res) => {
   // query database
   Mortgage.find({}, (err, results) => {
     if (err) {
