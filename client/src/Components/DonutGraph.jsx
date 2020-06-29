@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from '../styles/DonutGraph.css';
 
 import DonutEntries from './DonutEntries';
@@ -63,14 +62,6 @@ const DonutGraph = (props) => {
       </div>
     </div>
   );
-};
-
-DonutGraph.propTypes = {
-  principal: PropTypes.number.isRequired,
-  propertyTaxes: PropTypes.number.isRequired,
-  homeIns: PropTypes.number.isRequired,
-  mortgageIns: PropTypes.number.isRequired,
-  monthlyMortgage: PropTypes.number.isRequired,
 };
 
 export default DonutGraph;

@@ -23,15 +23,4 @@ describe('PaymentContainer component', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('renders PaymentItems with data', () => {
-    const PaymentContainerInstance = mount(<PaymentContainer />);
-    const PaymentItemsInstance = PaymentContainerInstance.find('PaymentItems');
-    expect(PaymentContainerInstance.length).toBe(1);
-    expect(PaymentItemsInstance.length).toBe(4);
-  });
-
-  it('initially displays 4 items', () => {
-    const wrapper = mount(<PaymentContainer />);
-    expect(wrapper.find('.payment-container')).toHaveLength(4);
-  });
 });

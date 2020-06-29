@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from '../styles/DonutGraph.css';
 
 const DonutEntries = (props) => {
@@ -26,16 +25,6 @@ const DonutEntries = (props) => {
       </svg>
     </div>
   );
-};
-
-DonutEntries.propTypes = {
-  pDash: PropTypes.string.isRequired,
-  tDash: PropTypes.string.isRequired,
-  taxOffset: PropTypes.string.isRequired,
-  hDash: PropTypes.string.isRequired,
-  homeOffset: PropTypes.string.isRequired,
-  mDash: PropTypes.string.isRequired,
-  mortOffset: PropTypes.string.isRequired,
 };
 
 export default DonutEntries;

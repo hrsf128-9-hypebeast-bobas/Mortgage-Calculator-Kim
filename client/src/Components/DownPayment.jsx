@@ -1,11 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from '../styles/FinancialDetails.css';
 
 const DownPayment = (props) => {
   const {
     setDownPaymentTotal, downPaymentFormat, setPaymentRate, downPaymentRateFormat, downPaymentRate,
   } = props;
+
+  function handleDownPayment(e) {
+    const val = e.target.value;
+    setDownPaymentTotal(val);
+  }
   return (
     <div className={styles.gridCellBox && styles.gridFlex}>
       <div className={styles.inputContainer}>
@@ -17,7 +21,7 @@ const DownPayment = (props) => {
 
           <div className={styles.downPaymentWrapper}>
             {/* left payment */}
-            <input className={styles.leftSplitFinancialInput} id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={(e) => setDownPaymentTotal(e.target.value)} value={downPaymentFormat} />
+            <input className={styles.leftSplitFinancialInput} id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={handleDownPayment} value={downPaymentFormat} />
             {/* Down Payment right Textarea */}
             <input className={styles.rightSplitFinancialInput} style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(downPaymentRateFormat)} />
           </div>
@@ -32,14 +36,6 @@ const DownPayment = (props) => {
       </div>
     </div>
   );
-};
-
-DownPayment.propTypes = {
-  setDownPaymentTotal: PropTypes.number.isRequired,
-  downPaymentFormat: PropTypes.string.isRequired,
-  setPaymentRate: PropTypes.func.isRequired,
-  downPaymentRateFormat: PropTypes.string.isRequired,
-  downPaymentRate: PropTypes.number.isRequired,
 };
 
 export default DownPayment;

@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React from 'react';
-import PropTypes from 'prop-types';
 import HomePrice from './HomePrice';
 import DownPayment from './DownPayment';
 import InterestRate from './InterestRate';
@@ -34,19 +33,6 @@ const FinancialDetails = (props) => {
       </div>
     </div>
   );
-};
-
-FinancialDetails.propTypes = {
-  homePriceVal: PropTypes.number.isRequired,
-  downPaymentRate: PropTypes.number.isRequired,
-  interestRate: PropTypes.number.isRequired,
-  loanType: PropTypes.string.isRequired,
-  sethomePriceVal: PropTypes.func.isRequired,
-  setDownPaymentTotal: PropTypes.number.isRequired,
-  setPaymentRate: PropTypes.func.isRequired,
-  setInterestRate: PropTypes.func.isRequired,
-  setLoanType: PropTypes.func.isRequired,
-  downPaymentTotal: PropTypes.number.isRequired,
 };
 
 export default FinancialDetails;

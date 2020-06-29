@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from '../styles/PaymentContainer.css';
 
 const PaymentContainer = (props) => {
   const nf = new Intl.NumberFormat(); // adds commas
   const {
-    principal, taxes, insurance, mortgage,
+    principal, taxes, homeIns, mortgage,
   } = props;
   return (
     <div>
@@ -58,7 +57,7 @@ const PaymentContainer = (props) => {
           </div>
           <div className={styles.priceText}>
             $
-            {insurance}
+            {homeIns}
           </div>
         </div>
       </div>
@@ -82,13 +81,6 @@ const PaymentContainer = (props) => {
       </div>
     </div>
   );
-};
-
-PaymentContainer.propTypes = {
-  principal: PropTypes.number.isRequired,
-  taxes: PropTypes.number.isRequired,
-  insurance: PropTypes.number.isRequired,
-  mortgage: PropTypes.number.isRequired,
 };
 
 export default PaymentContainer;

@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import React from 'react';
-// import PropTypes from 'prop-types';
 import styles from '../styles/FinancialDetails.css';
 
 const HomePrice = (props) => {
@@ -30,11 +29,5 @@ const HomePrice = (props) => {
     </div>
   );
 };
-
-// HomePrice.propTypes = {
-//   homePriceVal: PropTypes.number.isRequired,
-//   homePriceFormat: PropTypes.string.isRequired,
-//   sethomePriceVal: PropTypes.func.isRequired,
-// };
 
 export default HomePrice;
