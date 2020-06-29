@@ -4,8 +4,6 @@
 /* eslint-disable no-unused-vars */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import 'mocha';
 import { shallow, mount } from 'enzyme';
 import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
@@ -20,7 +18,10 @@ global.fetch = require('node-fetch');
 afterEach(cleanup);
 
 describe('App component', () => {
-  const wrapper = shallow(<App />);
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
 
   it('renders correctly enzyme', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -29,4 +30,5 @@ describe('App component', () => {
   it('renders without crashing', () => {
     expect(wrapper.exists()).toBe(true);
   });
+
 });

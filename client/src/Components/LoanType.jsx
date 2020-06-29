@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import styles from '../styles/FinancialDetails.css';
 
 const LoanType = (props) => {
@@ -48,11 +47,5 @@ const LoanType = (props) => {
     </div>
   );
 };
-
-// LoanType.propTypes = {
-//   loanType: PropTypes.string.isRequired,
-//   setInterestRate: PropTypes.func.isRequired,
-//   setLoanType: PropTypes.func.isRequired,
-// };
 
 export default LoanType;

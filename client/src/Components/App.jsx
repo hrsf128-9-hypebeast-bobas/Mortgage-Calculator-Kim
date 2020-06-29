@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+
+>>>>>>> ae0107645258f923e506f29cf5d437db7c49b7b0
 import regeneratorRuntime from 'regenerator-runtime';
 import styles from '../styles/App.css';
 
@@ -10,29 +15,35 @@ import DonutGraph from './DonutGraph';
 import PaymentContainer from './PaymentContainer';
 import PreQualified from './PreQualified';
 
-function App() {
+function App(props) {
+  const [homePriceVal, sethomePriceVal] = useState(4819000);
   const [downPaymentRate, setPaymentRate] = useState(20);
-  const [setDownPaymentTotal] = useState(750);
   const [interestRate, setInterestRate] = useState(3.49);
+  const [propertyTaxRate, setpropertyTaxRate] = useState(0.01);
   const [loanType, setLoanType] = useState('30-year fixed');
 
-  const [homePriceVal, sethomePriceVal] = useState(null);
-  useEffect(() => {
-    fetch('http://localhost:3333/mortgage')
-      .then((results) => results.json())
-      .then((data) => {
-        // console.log('GET success');
-        // console.log('data', data);
-        sethomePriceVal(data[0].mortgagePrice);
-      });
-  }, []);
+  function fetchData() {
+    useEffect(() => {
+      axios.get('http://localhost:3333/home1')
+        .then((results) => results.data)
+        .then((data) => {
+          console.log('GET success');
+          console.log('data', data);
+          sethomePriceVal(data[0].mortgagePrice);
+          setPaymentRate(data[0].downPaymentRate);
+          setInterestRate(data[0].interestRate);
+          setpropertyTaxRate(data[0].propertyTaxRate);
+        });
+    }, []);
+  }
 
-  // const [homePriceVal, sethomePriceVal] = useState(4198234);
+  fetchData();
 
   let mortgageIns = 0;
 
   /* *** DOWN PAYMENT TOTAL FORMULA *** */
   const downPaymentTotal = Math.round((homePriceVal * downPaymentRate) / 100);
+  const [setDownPaymentTotal] = useState(downPaymentTotal);
 
   /* *** COMPOUND INTEREST FORMULA *** */
   const months = 15;
@@ -43,7 +54,7 @@ function App() {
   const principalInterestVal = Math.ceil(P * ((r * top) / ((top) - 1)));
 
   /* *** PROPERTY TAX FORMULA *** */
-  const propertyTaxes = Math.ceil((homePriceVal * 0.01) / 12);
+  const propertyTaxes = Math.ceil((homePriceVal * propertyTaxRate) / 12);
 
   /* *** HOME INSURANCE *** */
   const homeIns = 75;
@@ -68,7 +79,7 @@ function App() {
       <div className={styles.affordabilityContainer}>
         <CostDetails monthlyMortgage={mortgageFormat} />
 
-        <FinancialDetails sethomePriceVal={sethomePriceVal} homePriceVal={Number(homePriceVal)} downPaymentTotal={downPaymentTotal} setDownPaymentTotal={setDownPaymentTotal} downPaymentRate={Number(downPaymentRate)} setPaymentRate={setPaymentRate} interestRate={Number(interestRate)} setInterestRate={setInterestRate} loanType={loanType} setLoanType={setLoanType} />
+        <FinancialDetails sethomePriceVal={sethomePriceVal} homePriceVal={Number(homePriceVal)} downPaymentTotal={downPaymentTotal} setDownPaymentTotal={setDownPaymentTotal} downPaymentRate={(downPaymentRate)} setPaymentRate={setPaymentRate} interestRate={Number(interestRate)} setInterestRate={setInterestRate} loanType={loanType} setLoanType={setLoanType} />
 
       </div>
 
