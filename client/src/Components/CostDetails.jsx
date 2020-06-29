@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from '../styles/CostDetails.css';
 
 const CostDetails = (props) => {
@@ -24,10 +23,6 @@ const CostDetails = (props) => {
       </div>
     </div>
   );
-};
-
-CostDetails.propTypes = {
-  monthlyMortgage: PropTypes.string.isRequired,
 };
 
 export default CostDetails;
