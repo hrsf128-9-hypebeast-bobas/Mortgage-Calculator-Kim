@@ -1,11 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-=======
 import axios from 'axios';
 
->>>>>>> ae0107645258f923e506f29cf5d437db7c49b7b0
 import regeneratorRuntime from 'regenerator-runtime';
 import styles from '../styles/App.css';
 
@@ -24,7 +21,7 @@ function App(props) {
 
   function fetchData() {
     useEffect(() => {
-      axios.get('http://localhost:3333/home1')
+      axios.get('http://localhost:3333/api/home1')
         .then((results) => results.data)
         .then((data) => {
           console.log('GET success');
