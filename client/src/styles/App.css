@@ -11,7 +11,7 @@ html, body {
 /*layout for slider*/
 input[type="range"]{
   -webkit-appearance: none;
-  background-color: teal;
+  background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 50%, rgb(205, 209, 212) 50%, rgb(205, 209, 212) 100%);;
   width: 100%;
   height: 2px;
   margin-bottom: 2px; /* fixes input field overlapping range slider during resize*/

@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const faker = require('faker');
 const Mortgage = require('./Mortgage.js');
 // const fakePrice = faker.commerce.price(3000000, 4000000);
@@ -21,7 +22,8 @@ generateHome(1);
 console.log(homeOne);
 
 const insertHomeData = () => {
-  Mortgage.create(homeOne);
+  Mortgage.create(homeOne)
+    .then(() => mongoose.disconnect());
 };
 
 insertHomeData();
