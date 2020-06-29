@@ -1,7 +1,7 @@
 # Mortgage-Calculator-Kim
 # Falisia
 
-> Falisa is a real estate search web application that allows buyers and renters to find homes across the United States through local insights and neighborhood reviews and using Google maps API to offer details on commute and reported crimes.
+> Falisa is a real estate search web application that allows buyers and renters to find homes across the United States through local insights and neighborhood reviews and utilizes Google maps API to offer details on commute and reported crimes.
 
 ## Related Projects
 
