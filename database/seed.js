@@ -21,7 +21,6 @@ const generateHome = (n) => {
 
 generateHome(100);
 
-// console.log(homes);
 
 const insertHomeData = () => {
   Mortgage.create(homes)
