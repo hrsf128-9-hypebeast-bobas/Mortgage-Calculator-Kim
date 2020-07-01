@@ -12,7 +12,9 @@ db.once('open', () => {
 
 // Schema
 const mortgageSchema = new mongoose.Schema({
-  mortgagePrice: String,
+  home: String,
+  city: String,
+  mortgagePrice: Number,
   downPaymentRate: Number,
   homeIns: Number,
   interestRate: Number,

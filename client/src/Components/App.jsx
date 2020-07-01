@@ -25,7 +25,7 @@ function App(props) {
         .then((results) => results.data)
         .then((data) => {
           console.log('GET success');
-          console.log('data', data);
+          console.log('data', data[0]);
           sethomePriceVal(data[0].mortgagePrice);
           setPaymentRate(data[0].downPaymentRate);
           setInterestRate(data[0].interestRate);

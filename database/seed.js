@@ -1,28 +1,30 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 const Mortgage = require('./Mortgage.js');
-// const fakePrice = faker.commerce.price(3000000, 4000000);
-const homeOne = [];
+
+const homes = [];
 
 const generateHome = (n) => {
   for (let i = 0; i < n; i += 1) {
     const mortgageObj = {
-      mortgagePrice: faker.commerce.price(3000000, 4000000).slice(0, -3),
-      downPaymentRate: 20,
-      homeIns: 75,
-      interestRate: 3.49,
+      homeNum: i + 1,
+      city: faker.address.county(),
+      mortgagePrice: Number(faker.commerce.price(3000000, 4000000).slice(0, -3)),
+      downPaymentRate: Number(faker.random.number(10, 15)),
+      homeIns: faker.random.number({ min: 50, max: 80 }),
+      interestRate: Number(faker.finance.amount(2, 4, 2)),
       propertyTaxRate: 0.01,
     };
-    homeOne.push(mortgageObj);
+    homes.push(mortgageObj);
   }
 };
 
-generateHome(1);
+generateHome(100);
 
-console.log(homeOne);
+// console.log(homes);
 
 const insertHomeData = () => {
-  Mortgage.create(homeOne)
+  Mortgage.create(homes)
     .then(() => mongoose.disconnect());
 };
 
