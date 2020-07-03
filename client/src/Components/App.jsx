@@ -21,7 +21,7 @@ function App(props) {
 
   function fetchData() {
     useEffect(() => {
-      axios.get('http://localhost:3333/api/home1')
+      axios.get('/api/home1')
         .then((results) => results.data)
         .then((data) => {
           console.log('GET success');
@@ -86,7 +86,7 @@ function App(props) {
         <div className={styles.affordabilityTable}>
           <PaymentContainer principal={principalInterestVal} taxes={propertyTaxes} homeIns={homeIns} mortgage={mortgageIns} />
 
-          <div className={styles.extraPadding}> </div>
+          <div className={{ styles: 'padding: 0px 0px 32px' }}> </div>
 
           <PreQualified />
         </div>

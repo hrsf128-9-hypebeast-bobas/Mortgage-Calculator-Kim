@@ -1,5 +1,6 @@
 /* eslint-disable comma-dangle */
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, 'public');
@@ -33,6 +34,10 @@ module.exports = {
               modules: true,
             },
           },
+          // ExtractTextPlugin.extract({
+          //   fallback: 'style-loader',
+          //   use: 'css-loader'
+          // })
         ],
       },
     ]
