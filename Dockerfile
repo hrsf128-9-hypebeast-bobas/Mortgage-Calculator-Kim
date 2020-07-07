@@ -8,7 +8,7 @@ COPY . /src/app
 
 RUN npm install
 
-EXPOSE 8080
+EXPOSE 5555
 
 RUN npm run db:setup
 

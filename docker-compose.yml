@@ -1,11 +1,12 @@
 version: '3'
-
 services:
   mortgage:
-    build: survey_server/
+    build: Mortgage-Calculator-Kim # where you are build your shit
+    container_name: mortgage-container # name your container here
     depends_on:
       - 'database'
     ports:
-      - '80:8080'
+      - '5555:3333'
   database:
+    container_name: db-container
     image: mongo:latest
