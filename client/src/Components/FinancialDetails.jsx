@@ -13,8 +13,8 @@ const FinancialDetails = (props) => {
 
   // formats user input values
   const nf = new Intl.NumberFormat();
-  const homePriceFormat = `${nf.format(homePriceVal)}`;
-  const downPaymentFormat = `${nf.format(downPaymentTotal)}`;
+  const homePriceFormat = `$${nf.format(homePriceVal)}`;
+  const downPaymentFormat = `$${nf.format(downPaymentTotal)}`;
   const downPaymentRateFormat = `${downPaymentRate}%`;
   const interestRateFormat = `${interestRate}%`;
 
