@@ -3,13 +3,14 @@ const faker = require('faker');
 const Mortgage = require('./Mortgage.js');
 
 const homes = [];
+let rates = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30];
 
 const generateHome = (n) => {
   for (let i = 0; i < n; i += 1) {
     const mortgageObj = {
-      homeNum: i + 1,
+      homeId: Number(i + 1),
       city: faker.address.county(),
-      mortgagePrice: Number(faker.commerce.price(3000000, 4000000).slice(0, -3)),
+      homePrice: Number(faker.commerce.price(3000000, 4000000).slice(0, -3)),
       downPaymentRate: Number(faker.random.number(10, 15)),
       homeIns: faker.random.number({ min: 50, max: 80 }),
       interestRate: Number(faker.finance.amount(2, 4, 2)),
@@ -18,6 +19,7 @@ const generateHome = (n) => {
     homes.push(mortgageObj);
   }
 };
+
 
 generateHome(100);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles/PaymentContainer.css';
 
 const PaymentContainer = (props) => {
-  const nf = new Intl.NumberFormat(); // adds commas
+  const nf = new Intl.NumberFormat();
   const {
     principal, taxes, homeIns, mortgage,
   } = props;

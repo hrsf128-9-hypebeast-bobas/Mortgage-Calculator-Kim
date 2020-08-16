@@ -6,3 +6,8 @@ node_modules/
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+.babelrc
+babel.config.js
+jest.config.js
+enzyme.config.js

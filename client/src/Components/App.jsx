@@ -1,11 +1,7 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import regeneratorRuntime from 'regenerator-runtime';
 import styles from '../styles/App.css';
-
 import CostDetails from './CostDetails';
 import FinancialDetails from './FinancialDetails';
 import DonutGraph from './DonutGraph';
@@ -21,12 +17,10 @@ function App(props) {
 
   function fetchData() {
     useEffect(() => {
-      axios.get('/api/home1')
+      axios.get('/api/home')
         .then((results) => results.data)
         .then((data) => {
-          console.log('GET success');
-          console.log('data', data);
-          sethomePriceVal(data[0].mortgagePrice);
+          sethomePriceVal(data[0].homePrice);
           setPaymentRate(data[0].downPaymentRate);
           setInterestRate(data[0].interestRate);
           setpropertyTaxRate(data[0].propertyTaxRate);
@@ -66,7 +60,7 @@ function App(props) {
   }
 
   /* *** MONTHLY MORTGAGE PAYMENTS *** */
-  const nf = new Intl.NumberFormat(); // adds commas
+  const nf = new Intl.NumberFormat();
   const monthlyMortgage = principalInterestVal + propertyTaxes + homeIns + mortgageIns;
   const mortgageFormat = nf.format(principalInterestVal + propertyTaxes + homeIns + mortgageIns);
 
@@ -86,11 +80,10 @@ function App(props) {
         <div className={styles.affordabilityTable}>
           <PaymentContainer principal={principalInterestVal} taxes={propertyTaxes} homeIns={homeIns} mortgage={mortgageIns} />
 
-          <div className={{ styles: 'padding: 0px 0px 32px' }}> </div>
+          <div className={{ styles: 'padding: 0px 0px 32px' }}></div>
 
           <PreQualified />
         </div>
-
       </div>
     </div>
   );

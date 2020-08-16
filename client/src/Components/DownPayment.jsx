@@ -20,16 +20,15 @@ const DownPayment = (props) => {
           </div>
 
           <div className={styles.downPaymentWrapper}>
-            {/* left payment */}
+            {/* left input payment textarea */}
             <input className={styles.leftSplitFinancialInput} id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={handleDownPayment} value={downPaymentFormat} />
-            {/* Down Payment right Textarea */}
+            {/* down payment right input textarea */}
             <input className={styles.rightSplitFinancialInput} style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(downPaymentRateFormat)} />
           </div>
         </div>
 
         <div className="slider-container">
-          {/* Down Paypment Slider */}
-
+          {/* Down Payment Slider */}
           <input className="range" type="range" min="0" max="30" onChange={(e) => setPaymentRate(e.target.value)} value={downPaymentRate} />
 
         </div>

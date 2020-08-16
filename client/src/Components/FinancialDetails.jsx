@@ -10,10 +10,11 @@ const FinancialDetails = (props) => {
   const {
     sethomePriceVal, homePriceVal, setDownPaymentTotal, downPaymentRate, setPaymentRate, interestRate, setInterestRate, loanType, setLoanType, downPaymentTotal,
   } = props;
-  const nf = new Intl.NumberFormat(); // adds commas
 
-  const homePriceFormat = `$${nf.format(homePriceVal)}`;
-  const downPaymentFormat = `$${nf.format(downPaymentTotal)}`;
+  // formats user input values
+  const nf = new Intl.NumberFormat();
+  const homePriceFormat = `${nf.format(homePriceVal)}`;
+  const downPaymentFormat = `${nf.format(downPaymentTotal)}`;
   const downPaymentRateFormat = `${downPaymentRate}%`;
   const interestRateFormat = `${interestRate}%`;
 

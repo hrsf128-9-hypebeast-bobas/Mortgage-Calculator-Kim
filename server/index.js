@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const port = 3333;
-const Mortgage = require('../database/Mortgage.js'); // the model
+const port = 4444;
+const Mortgage = require('../database/Mortgage.js');
 
 // Fix cross origin
 app.use((req, res, next) => {
@@ -14,11 +13,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use('/', express.static(path.join(__dirname, '../client/dist/')));
 app.use(express.static('./public'));
 
-app.get('/api/home1', (req, res) => {
-  // query database
+app.get('/api/home', (req, res) => {
   Mortgage.find({}, (err, results) => {
     if (err) {
       res.status(400).send('Error fetching data');
