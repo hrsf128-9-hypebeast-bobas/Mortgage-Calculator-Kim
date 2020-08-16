@@ -17,9 +17,10 @@ function App(props) {
 
   function fetchData() {
     useEffect(() => {
-      axios.get('/api/home')
+      axios.get('/api/home1')
         .then((results) => results.data)
         .then((data) => {
+          console.log('data', data[0])
           sethomePriceVal(data[0].homePrice);
           setPaymentRate(data[0].downPaymentRate);
           setInterestRate(data[0].interestRate);
