@@ -29,7 +29,7 @@ function App(props) {
     }, []);
   }
 
-  fetchData();
+  // fetchData();
 
   let mortgageIns = 0;
 
