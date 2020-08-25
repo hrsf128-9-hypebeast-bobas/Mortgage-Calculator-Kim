@@ -10,6 +10,7 @@ const HomePrice = (props) => {
   const changePrice = (e) => {
     const { value } = e.target;
     sethomePriceVal(value);
+
   };
 
   return (
@@ -19,7 +20,7 @@ const HomePrice = (props) => {
           <div className={styles.textContainer}>
             Home Price
           </div>
-          <input id="homePriceInput" className={styles.homePriceInput} style={{ width: '112px' }} type="text" onChange={changePrice} value={homePriceFormat} />
+          <input id="homePriceInput" className={styles.homePriceInput} style={{ width: '112px' }} type="text" onChange={changePrice} value={homePriceFormat} disabled/>
         </div>
         <div className="slider-container">
           {/* Home Price Slider */}

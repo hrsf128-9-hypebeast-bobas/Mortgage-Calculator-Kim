@@ -21,9 +21,9 @@ const DownPayment = (props) => {
 
           <div className={styles.downPaymentWrapper}>
             {/* left input payment textarea */}
-            <input className={styles.leftSplitFinancialInput} id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={handleDownPayment} value={downPaymentFormat} />
+            <input className={styles.leftSplitFinancialInput} id="DownPaymentInput" style={{ width: '100px' }} type="text" onChange={handleDownPayment} value={downPaymentFormat} disabled/>
             {/* down payment right input textarea */}
-            <input className={styles.rightSplitFinancialInput} style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(downPaymentRateFormat)} />
+            <input className={styles.rightSplitFinancialInput} style={{ width: '56px' }} type="text" onChange={(e) => setPaymentRate(e.target.value)} value={(downPaymentRateFormat)} disabled/>
           </div>
         </div>
 
