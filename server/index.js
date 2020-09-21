@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const port = 4444;
-const Mortgage = require('../database/Mortgage.js');
 const controller = require('./controller')
 
 app.use((req, res, next) => {
@@ -13,6 +12,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static('./public'));
 
 app.get('/api/home1', controller.getData);

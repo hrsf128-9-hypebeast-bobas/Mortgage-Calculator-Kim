@@ -25,11 +25,12 @@ function App(props) {
           setPaymentRate(data[0].downPaymentRate);
           setInterestRate(data[0].interestRate);
           setpropertyTaxRate(data[0].propertyTaxRate);
+          setLoanType(data[0].loanType)
         });
     }, []);
   }
 
-  // fetchData();
+  fetchData();
 
   let mortgageIns = 0;
 
